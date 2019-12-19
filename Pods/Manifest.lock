@@ -1,0 +1,16 @@
+PODS:
+  - MovieSDK (1.0.0)
+
+DEPENDENCIES:
+  - MovieSDK (from `../MovieFreeAPI`)
+
+EXTERNAL SOURCES:
+  MovieSDK:
+    :path: "../MovieFreeAPI"
+
+SPEC CHECKSUMS:
+  MovieSDK: 88cb14f3916470a866346d03369989101f7c9b2d
+
+PODFILE CHECKSUM: d6f4b0b21d7e25309007acbd15e660a20d6ccf7c
+
+COCOAPODS: 1.8.4
