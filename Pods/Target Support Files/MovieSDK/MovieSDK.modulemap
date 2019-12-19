@@ -1,0 +1,6 @@
+framework module MovieSDK {
+  umbrella header "MovieSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

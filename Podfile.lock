@@ -1,0 +1,16 @@
+PODS:
+  - MovieSDK (1.0.0)
+
+DEPENDENCIES:
+  - MovieSDK
+
+SPEC REPOS:
+  "git@github.com:wliam06/MovieSpecs.git":
+    - MovieSDK
+
+SPEC CHECKSUMS:
+  MovieSDK: 7471bc120c0a9ebae410d882fbe0a9e7b5deb618
+
+PODFILE CHECKSUM: ac57a2dd84bc4479587bca76d260a936db66d6d3
+
+COCOAPODS: 1.8.4
