@@ -7,7 +7,15 @@
 //
 
 import Foundation
+import MovieSDK
 
 final class MovieViewModel: MovieListViewModel {
-    
+    private func loadMovie() {
+        
+    }
+
+    // MARK: - Input
+    func requestMovieList() {
+        
+    }
 }
