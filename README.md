@@ -10,4 +10,5 @@ To organize groups, files and code into more specifically. I use this structure 
  - `Presentation` - contains of `View` and `ViewModel`.
  
  
- ## Build
+ ## Built with
+ Using `Xcode 10.3` and written in `Swift 5`

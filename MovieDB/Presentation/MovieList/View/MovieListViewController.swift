@@ -9,6 +9,15 @@
 import UIKit
 
 class MovieListViewController: UIViewController {
+    private(set) var viewModel: MovieListViewModel!
+
+    final class func create(withViewModel viewModel: MovieListViewModel) -> MovieListViewController {
+        let view = MovieListViewController()
+        view.viewModel = viewModel
+
+        return view
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
