@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import MovieSDK
 
 class MovieListViewController: UIViewController {
+    @IBOutlet weak var collectionView: UICollectionView!
+
     private(set) var viewModel: MovieListViewModel!
 
     final class func create(withViewModel viewModel: MovieListViewModel) -> MovieListViewController {
@@ -20,5 +23,7 @@ class MovieListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        viewModel.requestMovieList()
     }
 }
