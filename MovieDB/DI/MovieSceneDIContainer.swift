@@ -12,7 +12,15 @@ final class MovieSceneDIContainer {
     init() {
     }
 
+    func loadMovieUseCase() -> MovieUseCase {
+        return MovieListUseCase(moviesRepository: loadMovieRepository())
+    }
+
+    func loadMovieRepository() -> MoviesRepository {
+        return MovieListRepository()
+    }
+
     func initMovieListViewController() -> UIViewController {
-        return MovieListViewController.create(withViewModel: MovieViewModel())
+        return MovieListViewController.create(withViewModel: MovieViewModel(movieUseCase: loadMovieUseCase()))
     }
 }

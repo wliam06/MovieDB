@@ -10,12 +10,41 @@ import Foundation
 import MovieSDK
 
 final class MovieViewModel: MovieListViewModel {
-    private func loadMovie() {
-        
+    private(set) var currentPage = 0
+    private var totalPageCount = 0
+
+    var loadMore: Bool {
+        return currentPage < totalPageCount
+    }
+
+    var nextPage: Int {
+        guard loadMore else { return currentPage }
+        return currentPage + 1
+    }
+
+    private let movieUseCase: MovieUseCase
+
+    init(movieUseCase: MovieUseCase) {
+        self.movieUseCase = movieUseCase
     }
 
     // MARK: - Input
     func requestMovieList() {
-        
+        load(movie: .nowPlaying, page: "1")
+    }
+
+    // MARK: - Private Method
+    private func load(movie: MovieListPath, page: String) {
+        let movieRequest = MovieUseCaseRequest(movieList: movie, page: page)
+        movieUseCase.loadMovieListByType(movie: movieRequest) { [weak self] (result) in
+            guard let self = self else { return }
+
+            switch result {
+            case .success:
+                debugPrint("SUCCESS")
+            case .failure:
+                debugPrint("FAILURE")
+            }
+        }
     }
 }
