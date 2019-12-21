@@ -16,6 +16,10 @@
 		5E0F92D723ACA1D7002C5F88 /* MoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F92D623ACA1D7002C5F88 /* MoviesRepository.swift */; };
 		5E0F92DB23ACA709002C5F88 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F92DA23ACA709002C5F88 /* MovieResponse.swift */; };
 		5E0F92DD23ACA73A002C5F88 /* MovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F92DC23ACA73A002C5F88 /* MovieEntity.swift */; };
+		5E0F92E023ACA931002C5F88 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F92DF23ACA931002C5F88 /* Observable.swift */; };
+		5E0F92E423ACAD6B002C5F88 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F92E323ACAD6B002C5F88 /* Cancellable.swift */; };
+		5E0F92E623ACAD71002C5F88 /* ConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F92E523ACAD71002C5F88 /* ConnectionError.swift */; };
+		5E0F92E823ACC056002C5F88 /* MovieListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F92E723ACC056002C5F88 /* MovieListRepository.swift */; };
 		5E7CF8C823AB66F4000ACA33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CF8C723AB66F4000ACA33 /* AppDelegate.swift */; };
 		5E7CF8CF23AB66F7000ACA33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CF8CE23AB66F7000ACA33 /* Assets.xcassets */; };
 		5E7CF8D223AB66F7000ACA33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CF8D023AB66F7000ACA33 /* LaunchScreen.storyboard */; };
@@ -51,6 +55,10 @@
 		5E0F92D623ACA1D7002C5F88 /* MoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRepository.swift; sourceTree = "<group>"; };
 		5E0F92DA23ACA709002C5F88 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		5E0F92DC23ACA73A002C5F88 /* MovieEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEntity.swift; sourceTree = "<group>"; };
+		5E0F92DF23ACA931002C5F88 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		5E0F92E323ACAD6B002C5F88 /* Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
+		5E0F92E523ACAD71002C5F88 /* ConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionError.swift; sourceTree = "<group>"; };
+		5E0F92E723ACC056002C5F88 /* MovieListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRepository.swift; sourceTree = "<group>"; };
 		5E7CF8C423AB66F4000ACA33 /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7CF8C723AB66F4000ACA33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E7CF8CE23AB66F7000ACA33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +128,7 @@
 		5E0F92D823ACA3A2002C5F88 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				5E0F92E723ACC056002C5F88 /* MovieListRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -130,6 +139,30 @@
 				5E0F92DA23ACA709002C5F88 /* MovieResponse.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		5E0F92DE23ACA90F002C5F88 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				5E0F92DF23ACA931002C5F88 /* Observable.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
+		5E0F92E223ACAD5D002C5F88 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5E0F92E323ACAD6B002C5F88 /* Cancellable.swift */,
+				5E0F92E523ACAD71002C5F88 /* ConnectionError.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5E0F92ED23ACC125002C5F88 /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Persistent;
 			sourceTree = "<group>";
 		};
 		5E7CF8BB23AB66F4000ACA33 = {
@@ -160,6 +193,7 @@
 				5EFE209123AB698500FD199F /* Domain */,
 				5EFE209323AB699C00FD199F /* Data */,
 				5EFE209223AB698A00FD199F /* Presentation */,
+				5E0F92E223ACAD5D002C5F88 /* Common */,
 				5EFE209023AB697200FD199F /* Resources */,
 			);
 			path = MovieDB;
@@ -206,6 +240,7 @@
 		5EFE209223AB698A00FD199F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				5E0F92DE23ACA90F002C5F88 /* Observable */,
 				5E0F92CF23AC9504002C5F88 /* Movie */,
 				5E0F92CC23AC9408002C5F88 /* Protocols */,
 				5EFE209523AB6A3500FD199F /* MovieList */,
@@ -216,6 +251,7 @@
 		5EFE209323AB699C00FD199F /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				5E0F92ED23ACC125002C5F88 /* Persistent */,
 				5E0F92D823ACA3A2002C5F88 /* Repository */,
 				5E0F92D923ACA6FA002C5F88 /* Network */,
 			);
@@ -480,8 +516,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E0F92E823ACC056002C5F88 /* MovieListRepository.swift in Sources */,
+				5E0F92E023ACA931002C5F88 /* Observable.swift in Sources */,
 				5EFE20A023AB938700FD199F /* AppDIContainer.swift in Sources */,
 				5EFE209E23AB923200FD199F /* AppConfiguration.swift in Sources */,
+				5E0F92E623ACAD71002C5F88 /* ConnectionError.swift in Sources */,
 				5E0F92D723ACA1D7002C5F88 /* MoviesRepository.swift in Sources */,
 				5E0F92CE23AC9424002C5F88 /* MovieListViewModelO.swift in Sources */,
 				5E0F92D123AC950D002C5F88 /* MovieViewModel.swift in Sources */,
@@ -492,6 +531,7 @@
 				5E0F92DD23ACA73A002C5F88 /* MovieEntity.swift in Sources */,
 				5E0F92DB23ACA709002C5F88 /* MovieResponse.swift in Sources */,
 				5E0F92CB23AC93EE002C5F88 /* MovieListViewModel.swift in Sources */,
+				5E0F92E423ACAD6B002C5F88 /* Cancellable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

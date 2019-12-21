@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MovieSDK
 
 class MovieListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
