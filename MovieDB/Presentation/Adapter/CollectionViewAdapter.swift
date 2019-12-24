@@ -27,8 +27,8 @@ class CollectionViewAdapter: NSObject {
     collectionView.delegate = self
     collectionView.dataSource = self
 
-    collectionView.register(UINib(nibName: MovieListItemCell.reuseIdentifier(), bundle: nil),
-                            forCellWithReuseIdentifier: MovieListItemCell.reuseIdentifier())
+    collectionView.register(UINib(nibName: MovieCarouselCell.reuseIdentifier(), bundle: nil),
+                            forCellWithReuseIdentifier: MovieCarouselCell.reuseIdentifier())
   }
 
   /// Update movie data
@@ -51,14 +51,15 @@ extension CollectionViewAdapter: UICollectionViewDataSource, UICollectionViewDel
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieListItemCell.reuseIdentifier(),
-                                                  for: indexPath) as! MovieListItemCell
-    cell.imageURL = data[indexPath.row].posterPath
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCarouselCell.reuseIdentifier(),
+                                                  for: indexPath) as! MovieCarouselCell
+//    cell.imageURL = data[indexPath.row].posterPath
+    cell.dataSource = data
     return cell
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: UIScreen.main.bounds.width, height: 400)
+    return CGSize(width: UIScreen.main.bounds.width, height: 190)
   }
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
