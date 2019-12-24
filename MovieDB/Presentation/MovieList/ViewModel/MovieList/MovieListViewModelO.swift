@@ -9,9 +9,12 @@
 import Foundation
 
 protocol MovieListViewModelInput: class {
-    func requestMovieList()
+  func requestMovieList()
+
+  func movieDidTapped(withId id: Int)
 }
 
 protocol MovieListViewModelOutput: class {
+  var route: Observable<MovieListViewModelRoute> { get }
   var items: Observable<[Movie]> { get }
 }

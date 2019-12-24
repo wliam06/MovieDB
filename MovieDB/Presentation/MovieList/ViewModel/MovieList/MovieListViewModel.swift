@@ -15,6 +15,7 @@ final class MovieListViewViewModel: MovieListViewModel {
   private(set) var currentPage = 0
   private var totalPageCount = 0
 
+  let route: Observable<MovieListViewModelRoute> = Observable(.initial)
   let items: Observable<[Movie]> = Observable([Movie]())
 
   var loadMore: Bool {
@@ -36,6 +37,10 @@ final class MovieListViewViewModel: MovieListViewModel {
   func requestMovieList() {
     load(movie: .nowPlaying, page: "1")
   }
+
+  func movieDidTapped(withId id: Int) {
+    route.value = .navigateToDetail(withID: id)
+  }
   
   // MARK: - Private Method
   private func load(movie: MovieListPath, page: String) {
@@ -54,5 +59,4 @@ final class MovieListViewViewModel: MovieListViewModel {
       }
     }
   }
-
 }
