@@ -41,10 +41,40 @@ extension MovieCarouselAdapter: UICollectionViewDataSource, UICollectionViewDele
   }
 
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    let pageWidth: CGFloat = (150 + 15) * 2
-
+    let pageWidth: CGFloat = (150 + 8) * 2
     let test = Int(floor((scrollView.contentOffset.x - CGFloat(pageWidth / 2)) / pageWidth)) + 1
+
     currentPage = test
+  }
+
+  func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    let pageWidth: CGFloat = (150 + 8) * 2
+    let maxPage = Int(ceil(scrollView.contentSize.width / pageWidth)) - 1
+    var newPage = currentPage
+
+    if velocity.x == 0.0 {
+      newPage = Int(floor((targetContentOffset.pointee.x - pageWidth / 2) / pageWidth)) + 1
+    } else {
+      newPage = velocity.x > 0.0 ? currentPage + 1 : currentPage - 1
+
+      if newPage < 0 {
+        newPage = 0
+      }
+
+      if newPage > Int(ceil(scrollView.contentSize.width / pageWidth)) {
+        newPage = Int(ceil((pageWidth + 8) / pageWidth)) - 1
+      }
+
+      if newPage == maxPage {
+        targetContentOffset.pointee.x = scrollView.contentSize.width - UIScreen.main.bounds.size.width
+      } else {
+        targetContentOffset.pointee.x = CGFloat(newPage) * pageWidth
+      }
+    }
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return 0
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -52,10 +82,10 @@ extension MovieCarouselAdapter: UICollectionViewDataSource, UICollectionViewDele
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+    return UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 15
+    return 8
   }
 }
