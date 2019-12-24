@@ -9,8 +9,16 @@
 import UIKit
 
 class MovieListItemCell: UICollectionViewCell {
-  @IBOutlet weak var titleLabel: UILabel!
-  
+  @IBOutlet weak var imageView: UIImageView!
+
+  var imageURL: String? {
+    didSet {
+      guard let imageURL = imageURL else { return }
+      let url = URL(string: imageURL)
+      imageView.loadImageWithURL(url: url)
+    }
+  }
+
   static func reuseIdentifier() -> String {
     return String(describing: self)
   }

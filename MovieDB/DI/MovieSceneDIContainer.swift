@@ -9,18 +9,25 @@
 import UIKit
 
 final class MovieSceneDIContainer {
-    init() {
-    }
+  init() {
+  }
 
-    func loadMovieUseCase() -> MovieUseCase {
-        return MovieListUseCase(moviesRepository: loadMovieRepository())
-    }
+  func loadMovieUseCase() -> MovieUseCase {
+      return MovieListUseCase(moviesRepository: loadMovieRepository())
+  }
 
-    func loadMovieRepository() -> MoviesRepository {
-        return MovieListRepository()
-    }
+  func loadMovieRepository() -> MoviesRepository {
+      return MovieListRepository()
+  }
 
-    func initMovieListViewController() -> UIViewController {
-        return MovieListViewController.create(withViewModel: MovieListViewViewModel(movieUseCase: loadMovieUseCase()))
-    }
+  func initMovieListViewController() -> UIViewController {
+    return MovieListViewController.create(withViewModel: MovieListViewViewModel(movieUseCase: loadMovieUseCase()),
+                                          movieListViewControllerFactory: self)
+  }
+}
+
+extension MovieSceneDIContainer: MovieListViewControllerFactory {
+  func createMovieDetailViewController(withId id: Int) -> UIViewController {
+    return MovieDetailViewController.create(with: MovieDetailViewViewModel())
+  }
 }
