@@ -10,6 +10,6 @@ import Foundation
 import MovieSDK
 
 protocol MoviesRepository {
-    @discardableResult
-    func showMovieList(movie: MovieListPath, page: String, completion: @escaping(Result<MoviePage, Error>) -> Void)
+  @discardableResult
+  func showMovieList(movie: MovieListPath, page: String, completion: @escaping(Result<MoviePage, Error>) -> Void)
 }

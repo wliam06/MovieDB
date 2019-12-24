@@ -30,7 +30,7 @@ final class MovieViewModel: MovieListViewModel {
 
     // MARK: - Input
     func requestMovieList() {
-        load(movie: .nowPlaying, page: "1")
+        load(movie: .popular, page: "1")
     }
 
     // MARK: - Private Method

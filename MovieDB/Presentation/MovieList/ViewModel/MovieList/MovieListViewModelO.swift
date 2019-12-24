@@ -12,4 +12,6 @@ protocol MovieListViewModelInput: class {
     func requestMovieList()
 }
 
-protocol MovieListViewModelOutput: class {}
+protocol MovieListViewModelOutput: class {
+  var items: Observable<[Movie]> { get }
+}

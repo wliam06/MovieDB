@@ -10,18 +10,20 @@ import Foundation
 import MovieSDK
 
 final class MovieListRepository: MoviesRepository {
-    func showMovieList(movie: MovieListPath, page: String,
-                       completion: @escaping (Result<MoviePage, Error>) -> Void) {
-        MovieListSession().listOfMove(movie: movie,
-                                      page: page,
-                                      language: "id",
-                                      region: "ID",
-                                      onComplete: { [weak self](result) in
-                                        guard let self = self else { return }
-
-                                   debugPrint("MovieListRepository")
-        }) { [weak self] (error) in
-            debugPrint("ERROR", error?.localizedDescription)
+  func showMovieList(movie: MovieListPath, page: String, completion: @escaping (Result<MoviePage, Error>) -> Void) {
+    MovieListSession().listOfMove(movie: movie, page: page, language: "id", region: "ID") { [weak self] (response) in
+      switch response {
+      case .success(let data):
+        if let dict = data as? [String: Any] {
+          let movieResponse = MoviePage(with: dict)
+          completion(.success(movieResponse))
         }
+        return
+      case .failure(let error):
+        completion(.failure(error))
+        return
+      }
     }
+  }
+
 }

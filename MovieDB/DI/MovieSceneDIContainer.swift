@@ -21,6 +21,6 @@ final class MovieSceneDIContainer {
     }
 
     func initMovieListViewController() -> UIViewController {
-        return MovieListViewController.create(withViewModel: MovieViewModel(movieUseCase: loadMovieUseCase()))
+        return MovieListViewController.create(withViewModel: MovieListViewViewModel(movieUseCase: loadMovieUseCase()))
     }
 }

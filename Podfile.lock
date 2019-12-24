@@ -2,15 +2,15 @@ PODS:
   - MovieSDK (1.0.0)
 
 DEPENDENCIES:
-  - MovieSDK
+  - MovieSDK (from `../MovieFreeAPI`)
 
-SPEC REPOS:
-  "git@github.com:wliam06/MovieSpecs.git":
-    - MovieSDK
+EXTERNAL SOURCES:
+  MovieSDK:
+    :path: "../MovieFreeAPI"
 
 SPEC CHECKSUMS:
-  MovieSDK: 7471bc120c0a9ebae410d882fbe0a9e7b5deb618
+  MovieSDK: 9c162e0179e255fdc123c821d3cdf17f6e032d0e
 
-PODFILE CHECKSUM: 00bc2f1ce2db7af835c9fb4b8fa669e424a7f7a8
+PODFILE CHECKSUM: 72198473e1f6d50e0e815a8ecc837d023598fa98
 
 COCOAPODS: 1.8.4

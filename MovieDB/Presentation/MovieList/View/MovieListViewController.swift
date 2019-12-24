@@ -9,20 +9,33 @@
 import UIKit
 
 class MovieListViewController: UIViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var collectionView: UICollectionView!
+  private(set) var viewModel: MovieListViewModel!
 
-    private(set) var viewModel: MovieListViewModel!
+  private var movies: [Movie]!
+  private var adapter: CollectionViewAdapter!
 
-    final class func create(withViewModel viewModel: MovieListViewModel) -> MovieListViewController {
-        let view = MovieListViewController()
-        view.viewModel = viewModel
+  /// Instance ViewController
+  final class func create(withViewModel viewModel: MovieListViewModel) -> MovieListViewController {
+    let view = MovieListViewController()
+    view.viewModel = viewModel
 
-        return view
+    return view
+  }
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    adapter = CollectionViewAdapter(collectionView: collectionView, data: [])
+
+    bind(to: viewModel)
+    viewModel.requestMovieList()
+  }
+
+  private func bind(to viewModel: MovieListViewModel) {
+    viewModel.items.observe(on: self) { [weak self] (movies) in
+      self?.movies = movies
+      self?.adapter.update(with: movies)
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        viewModel.requestMovieList()
-    }
+  }
 }
