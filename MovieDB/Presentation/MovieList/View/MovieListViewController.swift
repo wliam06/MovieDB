@@ -30,6 +30,8 @@ class MovieListViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    self.view.backgroundColor = .blackPearl
+
     adapter = CollectionViewAdapter(collectionView: collectionView,
                                     delegate: self, data: [])
 

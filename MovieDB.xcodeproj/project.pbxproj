@@ -31,6 +31,8 @@
 		5E7CF8CF23AB66F7000ACA33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CF8CE23AB66F7000ACA33 /* Assets.xcassets */; };
 		5E7CF8D223AB66F7000ACA33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CF8D023AB66F7000ACA33 /* LaunchScreen.storyboard */; };
 		5E7CF8DD23AB66F8000ACA33 /* MovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CF8DC23AB66F8000ACA33 /* MovieDBTests.swift */; };
+		5E97FA4723B3355D007B96D1 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E97FA4623B3355D007B96D1 /* ColorExtension.swift */; };
+		5E97FA4D23B3378B007B96D1 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E97FA4C23B3378B007B96D1 /* ThemeManager.swift */; };
 		5ECC0E3223B2347800FB0D51 /* MovieCarouselAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECC0E3123B2347800FB0D51 /* MovieCarouselAdapter.swift */; };
 		5ECC0E3923B235E300FB0D51 /* MovieItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECC0E3723B235E300FB0D51 /* MovieItemCell.swift */; };
 		5ECC0E3A23B235E300FB0D51 /* MovieItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECC0E3823B235E300FB0D51 /* MovieItemCell.xib */; };
@@ -84,6 +86,8 @@
 		5E7CF8D823AB66F8000ACA33 /* MovieDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7CF8DC23AB66F8000ACA33 /* MovieDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBTests.swift; sourceTree = "<group>"; };
 		5E7CF8DE23AB66F8000ACA33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E97FA4623B3355D007B96D1 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		5E97FA4C23B3378B007B96D1 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		5ECC0E3123B2347800FB0D51 /* MovieCarouselAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCarouselAdapter.swift; sourceTree = "<group>"; };
 		5ECC0E3723B235E300FB0D51 /* MovieItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemCell.swift; sourceTree = "<group>"; };
 		5ECC0E3823B235E300FB0D51 /* MovieItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieItemCell.xib; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				5E39FCC923B20DE5007BFA90 /* ImageViewExtension.swift */,
+				5E97FA4623B3355D007B96D1 /* ColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -289,6 +294,14 @@
 			path = MovieDBTests;
 			sourceTree = "<group>";
 		};
+		5E97FA4B23B33780007B96D1 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5E97FA4C23B3378B007B96D1 /* ThemeManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		5EC985F923AE629B00F26C42 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +369,7 @@
 		5EFE209223AB698A00FD199F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				5E97FA4B23B33780007B96D1 /* Manager */,
 				5E39FCC823B20DC4007BFA90 /* Extensions */,
 				5E39FCC423B1FF5F007BFA90 /* Adapter */,
 				5EC985F923AE629B00F26C42 /* Components */,
@@ -640,9 +654,11 @@
 				5E0F92E023ACA931002C5F88 /* Observable.swift in Sources */,
 				5E39FCCA23B20DE5007BFA90 /* ImageViewExtension.swift in Sources */,
 				5EFE20A023AB938700FD199F /* AppDIContainer.swift in Sources */,
+				5E97FA4723B3355D007B96D1 /* ColorExtension.swift in Sources */,
 				5EFE209E23AB923200FD199F /* AppConfiguration.swift in Sources */,
 				5E0F92E623ACAD71002C5F88 /* ConnectionError.swift in Sources */,
 				5E39FCD923B226CD007BFA90 /* MovieDetailViewModel.swift in Sources */,
+				5E97FA4D23B3378B007B96D1 /* ThemeManager.swift in Sources */,
 				5E0F92D723ACA1D7002C5F88 /* MoviesRepository.swift in Sources */,
 				5E39FCD723B226C1007BFA90 /* MovieDetailViewModelIO.swift in Sources */,
 				5E39FCDE23B231E3007BFA90 /* MovieCarouselCell.swift in Sources */,

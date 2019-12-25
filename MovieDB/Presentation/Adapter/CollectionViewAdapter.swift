@@ -68,7 +68,7 @@ extension CollectionViewAdapter: UICollectionViewDataSource, UICollectionViewDel
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: UIScreen.main.bounds.size.width, height: 190)
+    return CGSize(width: UIScreen.main.bounds.width, height: 210)
   }
 
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -86,6 +86,6 @@ extension CollectionViewAdapter: UICollectionViewDataSource, UICollectionViewDel
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 20)
+    return UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
   }
 }

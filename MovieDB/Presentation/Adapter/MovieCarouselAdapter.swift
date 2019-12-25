@@ -41,14 +41,14 @@ extension MovieCarouselAdapter: UICollectionViewDataSource, UICollectionViewDele
   }
 
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    let pageWidth: CGFloat = (150 + 8) * 2
+    let pageWidth: CGFloat = (120 + 8) * 2
     let test = Int(floor((scrollView.contentOffset.x - CGFloat(pageWidth / 2)) / pageWidth)) + 1
 
     currentPage = test
   }
 
   func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-    let pageWidth: CGFloat = (150 + 8) * 2
+    let pageWidth: CGFloat = (120 + 8) * 2
     let maxPage = Int(ceil(scrollView.contentSize.width / pageWidth)) - 1
     var newPage = currentPage
 
@@ -78,7 +78,7 @@ extension MovieCarouselAdapter: UICollectionViewDataSource, UICollectionViewDele
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 150, height: 150)
+    return CGSize(width: 120, height: 170)
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
