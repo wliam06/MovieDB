@@ -28,6 +28,6 @@ final class MovieSceneDIContainer {
 
 extension MovieSceneDIContainer: MovieListViewControllerFactory {
   func createMovieDetailViewController(withId id: Int) -> UIViewController {
-    return MovieDetailViewController.create(with: MovieDetailViewViewModel())
+    return MovieDetailViewController.create(with: MovieDetailViewViewModel(movieId: id))
   }
 }

@@ -11,5 +11,11 @@ import Foundation
 protocol MovieDetailViewModel: MovieDetailViewModelInput, MovieDetailViewModelOutput {}
 
 class MovieDetailViewViewModel: MovieDetailViewModel {
+  private let movieId: Int
+
+  init(movieId: Int) {
+    self.movieId = movieId
+  }
+
   
 }

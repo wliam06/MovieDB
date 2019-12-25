@@ -26,7 +26,6 @@ struct MoviePage {
         self.movies.append(movie)
       }
     }
-
   }
 }
 
