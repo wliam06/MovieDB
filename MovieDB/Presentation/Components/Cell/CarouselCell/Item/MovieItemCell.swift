@@ -1,14 +1,14 @@
 //
-//  MovieListItemCell.swift
+//  MovieItemCell.swift
 //  MovieDB
 //
-//  Created by William on 21/12/19.
+//  Created by William on 24/12/19.
 //  Copyright © 2019 William. All rights reserved.
 //
 
 import UIKit
 
-class MovieListItemCell: UICollectionViewCell {
+class MovieItemCell: UICollectionViewCell {
   @IBOutlet weak var imageView: UIImageView!
 
   var imageURL: String? {
@@ -25,6 +25,7 @@ class MovieListItemCell: UICollectionViewCell {
 
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
+      // Initialization code
   }
+
 }
