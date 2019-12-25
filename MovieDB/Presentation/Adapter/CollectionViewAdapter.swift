@@ -64,17 +64,12 @@ extension CollectionViewAdapter: UICollectionViewDataSource, UICollectionViewDel
     }
 
     cell.dataSource = data
+    cell.delegate = self
     return cell
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return CGSize(width: UIScreen.main.bounds.width, height: 210)
-  }
-
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let id = data[indexPath.row].id
-
-    self.delegate?.movieDidTapped(withId: id)
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -87,5 +82,11 @@ extension CollectionViewAdapter: UICollectionViewDataSource, UICollectionViewDel
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     return UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
+  }
+}
+
+extension CollectionViewAdapter: MovieCarouselCellDelegate {
+  func movieCarouselDidTapped(withId id: Int) {
+    self.delegate?.movieDidTapped(withId: id)
   }
 }

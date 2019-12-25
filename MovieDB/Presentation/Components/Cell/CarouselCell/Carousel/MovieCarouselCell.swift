@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol MovieCarouselCellDelegate: class {
+  func movieCarouselDidTapped(withId id: Int)
+}
+
 class MovieCarouselCell: UICollectionViewCell {
   @IBOutlet weak var movieHeaderLabel: UILabel!
   @IBOutlet weak var collectionView: UICollectionView!
+
+  weak var delegate: MovieCarouselCellDelegate?
 
   private var adapter: MovieCarouselAdapter?
 
@@ -32,6 +38,14 @@ class MovieCarouselCell: UICollectionViewCell {
 
   private func didSetDataSource() {
     guard let dataSource = dataSource else { return }
-    self.adapter = MovieCarouselAdapter(collectionView: collectionView, dataSource: dataSource)
+
+    self.adapter = MovieCarouselAdapter(collectionView: collectionView,
+                                        dataSource: dataSource,
+                                        delegate: self)
+  }
+}
+extension MovieCarouselCell: MovieCarouselDelegate {
+  func movieDidTapped(_ id: Int) {
+    self.delegate?.movieCarouselDidTapped(withId: id)
   }
 }

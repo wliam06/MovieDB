@@ -8,15 +8,22 @@
 
 import UIKit
 
+protocol MovieCarouselDelegate: class {
+  func movieDidTapped(_ id: Int)
+}
+
 class MovieCarouselAdapter: NSObject {
   private let collectionView: UICollectionView
   private var dataSource: [Movie]
 
   private var currentPage = 0
 
-  init(collectionView: UICollectionView, dataSource: [Movie]) {
+  weak var delegate: MovieCarouselDelegate?
+
+  init(collectionView: UICollectionView, dataSource: [Movie], delegate: MovieCarouselDelegate?) {
     self.collectionView = collectionView
     self.dataSource = dataSource
+    self.delegate = delegate
 
     super.init()
 
@@ -38,6 +45,12 @@ extension MovieCarouselAdapter: UICollectionViewDataSource, UICollectionViewDele
                                                   for: indexPath) as! MovieItemCell
     cell.imageURL = dataSource[indexPath.row].posterPath
     return cell
+  }
+
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let id = dataSource[indexPath.row].id
+
+    self.delegate?.movieDidTapped(id)
   }
 
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
