@@ -25,7 +25,9 @@ class MovieItemCell: UICollectionViewCell {
 
   override func awakeFromNib() {
     super.awakeFromNib()
-      // Initialization code
+
+    imageView.layer.cornerRadius = 24
+    imageView.layer.masksToBounds = true
   }
 
 }

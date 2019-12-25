@@ -18,14 +18,14 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oi-oX-Kqf">
-                        <rect key="frame" x="0.0" y="16" width="48" height="24"/>
+                        <rect key="frame" x="12" y="16" width="48" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="i1X-VQ-n7p">
                         <rect key="frame" x="0.0" y="56" width="320" height="134"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="scrollIndicatorInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="8" minimumInteritemSpacing="8" id="jd3-J7-KDJ">
                             <size key="itemSize" width="0.0" height="0.0"/>
@@ -38,7 +38,7 @@
             </view>
             <constraints>
                 <constraint firstItem="i1X-VQ-n7p" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0Rc-Rd-Xmi"/>
-                <constraint firstItem="9Oi-oX-Kqf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="48X-Bu-voL"/>
+                <constraint firstItem="9Oi-oX-Kqf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="48X-Bu-voL"/>
                 <constraint firstAttribute="trailing" secondItem="i1X-VQ-n7p" secondAttribute="trailing" id="9ho-qs-P19"/>
                 <constraint firstAttribute="bottom" secondItem="i1X-VQ-n7p" secondAttribute="bottom" id="X32-2t-R7d"/>
                 <constraint firstItem="i1X-VQ-n7p" firstAttribute="top" secondItem="9Oi-oX-Kqf" secondAttribute="bottom" constant="16" id="cEs-LQ-bip"/>

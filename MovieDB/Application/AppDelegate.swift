@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     AppDIContainer().instanceMovieSDK()
 
+    ThemeManager.applyTheme()
+
     window = UIWindow(frame: UIScreen.main.bounds)
     let movieListVC = AppDIContainer().firstRoot().initMovieListViewController()
     window?.rootViewController = UINavigationController(rootViewController: movieListVC)

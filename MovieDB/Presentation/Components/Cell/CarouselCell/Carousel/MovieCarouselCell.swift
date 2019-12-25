@@ -26,7 +26,7 @@ class MovieCarouselCell: UICollectionViewCell {
 
   override func awakeFromNib() {
     super.awakeFromNib()
-      // Initialization code
+
     self.collectionView.decelerationRate = .fast
   }
 
