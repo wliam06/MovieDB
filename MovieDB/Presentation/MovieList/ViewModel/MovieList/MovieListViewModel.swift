@@ -28,10 +28,10 @@ final class MovieListViewViewModel: MovieListViewModel {
     return currentPage + 1
   }
 
-  private let movieUseCase: MovieListUseCaseInterface
+  private let movieListUseCase: MovieListUseCaseInterface
 
-  init(movieUseCase: MovieListUseCaseInterface) {
-    self.movieUseCase = movieUseCase
+  init(movieListUseCase: MovieListUseCaseInterface) {
+    self.movieListUseCase = movieListUseCase
   }
 
   // MARK: - Input
@@ -46,7 +46,7 @@ final class MovieListViewViewModel: MovieListViewModel {
   // MARK: - Private Method
   private func load(movie: MovieListPath, page: String, isLoading: Bool) {
     let movieRequest = MovieUseCaseResource(movieList: movie, page: page)
-    movieUseCase.loadMovieListByType(movie: movieRequest) { [weak self] (result) in
+    movieListUseCase.loadMovieListByType(movie: movieRequest) { [weak self] (result) in
       guard let self = self else { return }
 
       switch result {
