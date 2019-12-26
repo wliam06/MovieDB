@@ -1,5 +1,5 @@
 //
-//  MoviesRepository.swift
+//  MovieListRepositoryInterface.swift
 //  MovieDB
 //
 //  Created by William on 20/12/19.
@@ -9,7 +9,7 @@
 import Foundation
 import MovieSDK
 
-protocol MoviesRepository {
+protocol MovieListRepositoryInterface {
   @discardableResult
   func showMovieList(movie: MovieListPath, page: String, completion: @escaping(Result<MoviePage, Error>) -> Void)
 }

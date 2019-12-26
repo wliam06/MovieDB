@@ -15,7 +15,5 @@ class MovieDetailViewViewModel: MovieDetailViewModel {
 
   init(movieId: Int) {
     self.movieId = movieId
-  }
-
-  
+  }  
 }
