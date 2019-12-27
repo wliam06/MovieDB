@@ -64,9 +64,13 @@ class MovieListViewController: UIViewController {
 
   private func bind(to viewModel: MovieListViewModel) {
     viewModel.route.observe(on: self) { [weak self] in self?.handle($0)}
-    viewModel.items.observe(on: self) { [weak self] (movies) in
-      self?.movies = movies
-      self?.adapter.update(with: movies)
+//    viewModel.items.observe(on: self) { [weak self] (movies) in
+//      self?.movies = movies
+//      self?.adapter.update(with: movies)
+//    }
+    viewModel.items.observe(on: self) { [weak self] in
+      self?.movies = $0
+      self?.adapter.update(with: $0)
     }
     viewModel.isLoading.observe(on: self) { [weak self] (status) in
       self?.isLoading = status
