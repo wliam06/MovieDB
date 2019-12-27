@@ -9,25 +9,20 @@
 import Foundation
 import MovieSDK
 
-struct MovieUseCaseRequest {
+struct MovieUseCaseResource {
   let movieList: MovieListPath
   let page: String
 }
 
-protocol MovieUseCase {
-  func loadMovieListByType(movie: MovieUseCaseRequest,
-                           completion: @escaping(Result<MoviePage, Error>) -> Void)
-}
+final class MovieListUseCase: MovieListUseCaseInterface {
+  private let moviesRepository: MovieListRepositoryInterface
 
-final class MovieListUseCase: MovieUseCase {
-  private let moviesRepository: MoviesRepository
-
-  init(moviesRepository: MoviesRepository) {
+  init(moviesRepository: MovieListRepositoryInterface) {
     self.moviesRepository = moviesRepository
   }
 
   /// Load movie list based on MovieListPath
-  func loadMovieListByType(movie: MovieUseCaseRequest, completion: @escaping(Result<MoviePage, Error>) -> Void) {
+  func loadMovieListByType(movie: MovieUseCaseResource, completion: @escaping(Result<MoviePage, Error>) -> Void) {
     return moviesRepository.showMovieList(movie: movie.movieList, page: movie.page, completion: { (result) in
       switch result {
       case .success(let data):

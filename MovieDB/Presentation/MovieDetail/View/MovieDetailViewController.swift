@@ -18,6 +18,12 @@ class MovieDetailViewController: UIViewController {
     return view
   }
 
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+
+    navigationController?.navigationBar.isHidden = false
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 

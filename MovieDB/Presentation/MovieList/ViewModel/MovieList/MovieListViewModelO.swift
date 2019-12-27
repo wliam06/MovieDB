@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import MovieSDK
 
 protocol MovieListViewModelInput: class {
-  func requestMovieList()
+  func requestMovieList(movieType type: MovieListPath, page: String, isLoading: Bool)
 
   func movieDidTapped(withId id: Int)
 }
@@ -17,4 +18,5 @@ protocol MovieListViewModelInput: class {
 protocol MovieListViewModelOutput: class {
   var route: Observable<MovieListViewModelRoute> { get }
   var items: Observable<[Movie]> { get }
+  var isLoading: Observable<Bool> { get }
 }

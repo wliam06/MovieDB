@@ -17,6 +17,7 @@ final class MovieListViewViewModel: MovieListViewModel {
 
   let route: Observable<MovieListViewModelRoute> = Observable(.initial)
   let items: Observable<[Movie]> = Observable([Movie]())
+  let isLoading: Observable<Bool> = Observable(true)
 
   var loadMore: Bool {
     return currentPage < totalPageCount
@@ -27,15 +28,15 @@ final class MovieListViewViewModel: MovieListViewModel {
     return currentPage + 1
   }
 
-  private let movieUseCase: MovieUseCase
+  private let movieListUseCase: MovieListUseCaseInterface
 
-  init(movieUseCase: MovieUseCase) {
-    self.movieUseCase = movieUseCase
+  init(movieListUseCase: MovieListUseCaseInterface) {
+    self.movieListUseCase = movieListUseCase
   }
-  
+
   // MARK: - Input
-  func requestMovieList() {
-    load(movie: .nowPlaying, page: "1")
+  func requestMovieList(movieType type: MovieListPath, page: String, isLoading: Bool) {
+    load(movie: type, page: page, isLoading: isLoading)
   }
 
   func movieDidTapped(withId id: Int) {
@@ -43,9 +44,9 @@ final class MovieListViewViewModel: MovieListViewModel {
   }
   
   // MARK: - Private Method
-  private func load(movie: MovieListPath, page: String) {
-    let movieRequest = MovieUseCaseRequest(movieList: movie, page: page)
-    movieUseCase.loadMovieListByType(movie: movieRequest) { [weak self] (result) in
+  private func load(movie: MovieListPath, page: String, isLoading: Bool) {
+    let movieRequest = MovieUseCaseResource(movieList: movie, page: page)
+    movieListUseCase.loadMovieListByType(movie: movieRequest) { [weak self] (result) in
       guard let self = self else { return }
 
       switch result {
@@ -53,6 +54,7 @@ final class MovieListViewViewModel: MovieListViewModel {
         self.currentPage = data.page
         self.totalPageCount = data.totalPages
         self.items.value = data.movies
+        self.isLoading.value = data.movies.count > 0
         debugPrint("SUCCESS")
       case .failure(let error):
         debugPrint("FAILURE", error)

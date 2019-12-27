@@ -23,11 +23,16 @@ class MovieItemCell: UICollectionViewCell {
     return String(describing: self)
   }
 
+  // MARK: - Size
+  static func cellSize(width: CGFloat) -> CGSize {
+    let collectionViewSize = width - 2
+
+    return CGSize(width: collectionViewSize / 2 - 1 / 2,
+                  height: collectionViewSize / 2 + 60)
+  }
+
   override func awakeFromNib() {
     super.awakeFromNib()
-
-    imageView.layer.cornerRadius = 24
-    imageView.layer.masksToBounds = true
   }
 
 }
