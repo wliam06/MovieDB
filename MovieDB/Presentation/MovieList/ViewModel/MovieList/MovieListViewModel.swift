@@ -22,7 +22,7 @@ final class MovieListViewViewModel: MovieListViewModel {
   var loadMore: Bool {
     return currentPage < totalPageCount
   }
-  
+
   var nextPage: Int {
     guard loadMore else { return currentPage }
     return currentPage + 1
@@ -42,7 +42,7 @@ final class MovieListViewViewModel: MovieListViewModel {
   func movieDidTapped(withId id: Int) {
     route.value = .navigateToDetail(withID: id)
   }
-  
+
   // MARK: - Private Method
   private func load(movie: MovieListPath, page: String, isLoading: Bool) {
     let movieRequest = MovieUseCaseResource(movieList: movie, page: page)

@@ -11,11 +11,14 @@ import Foundation
 protocol MovieDetailViewModel: MovieDetailViewModelInput, MovieDetailViewModelOutput {}
 
 class MovieDetailViewViewModel: MovieDetailViewModel {
-  private let movieId: Int
+  private let movieId: Int?
   private let useCase: MovieDetailUseCaseInterface
+  private let wireframe: MovieDetailWireframe
 
-  init(movieId: Int, useCase: MovieDetailUseCaseInterface) {
+  init(movieId: Int?,
+       useCase: MovieDetailUseCaseInterface, wireframe: MovieDetailWireframe) {
     self.movieId = movieId
     self.useCase = useCase
-  }  
+    self.wireframe = wireframe
+  }
 }

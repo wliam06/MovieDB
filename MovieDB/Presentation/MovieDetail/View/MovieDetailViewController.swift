@@ -9,14 +9,14 @@
 import UIKit
 
 class MovieDetailViewController: UIViewController {
-  var viewModel: MovieDetailViewModel!
+  var viewModel: MovieDetailViewModel?
 
-  final class func create(with viewModel: MovieDetailViewModel) -> MovieDetailViewController {
-    let view = MovieDetailViewController()
-    view.viewModel = viewModel
-
-    return view
-  }
+//  final class func create(with viewModel: MovieDetailViewModel) -> MovieDetailViewController {
+//    let view = MovieDetailViewController()
+//    view.viewModel = viewModel
+//
+//    return view
+//  }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
