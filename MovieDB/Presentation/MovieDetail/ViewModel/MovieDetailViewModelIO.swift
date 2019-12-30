@@ -8,6 +8,8 @@
 
 import Foundation
 
-protocol MovieDetailViewModelInput: class {}
+protocol MovieDetailViewModelInput: class {
+  func requestDetailMovie(movieId id: Int)
+}
 
 protocol MovieDetailViewModelOutput: class {}

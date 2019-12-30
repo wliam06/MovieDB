@@ -21,4 +21,8 @@ class MovieDetailViewViewModel: MovieDetailViewModel {
     self.useCase = useCase
     self.wireframe = wireframe
   }
+
+  // MARK: - Input
+  func requestDetailMovie(movieId id: Int) {
+  }
 }

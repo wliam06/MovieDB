@@ -8,4 +8,6 @@
 
 import Foundation
 
-protocol MovieDetailUseCaseInterface {}
+protocol MovieDetailUseCaseInterface {
+//  func loadMovieDetail(movieId: Int, completion: @escaping)
+}
