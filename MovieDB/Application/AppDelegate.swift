@@ -20,8 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ThemeManager.applyTheme()
 
     window = UIWindow(frame: UIScreen.main.bounds)
-    let movieListVC = AppDIContainer().firstRoot().initMovieListViewController()
-    window?.rootViewController = UINavigationController(rootViewController: movieListVC)
+    window?.rootViewController = UINavigationController(rootViewController: AppDIContainer().firstRoot())
     window?.makeKeyAndVisible()
     return true
   }

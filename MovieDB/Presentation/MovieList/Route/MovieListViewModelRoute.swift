@@ -12,7 +12,3 @@ enum MovieListViewModelRoute {
   case initial
   case navigateToDetail(withID: Int)
 }
-
-protocol MovieListViewControllerFactory: class {
-  func createMovieDetailViewController(withId id: Int) -> UIViewController
-}
