@@ -15,6 +15,9 @@ class MovieDetailViewViewModel: MovieDetailViewModel {
   private let useCase: MovieDetailUseCaseInterface
   private let wireframe: MovieDetailWireframe
 
+  let items: Observable<MovieDetail> = Observable(MovieDetail(json: [:]))
+  var isLoading: Observable<Bool> = Observable(true)
+
   init(movieId: Int?,
        useCase: MovieDetailUseCaseInterface, wireframe: MovieDetailWireframe) {
     self.movieId = movieId
@@ -24,5 +27,17 @@ class MovieDetailViewViewModel: MovieDetailViewModel {
 
   // MARK: - Input
   func requestDetailMovie(movieId id: Int) {
+    useCase.loadMovieDetail(movieId: id) { (result) in
+      switch result {
+      case .success(let data):
+        debugPrint("SUCCESS REQUEST MOVIE DETAIL", data)
+        self.items.value = data
+        self.isLoading.value = false
+        return
+      case .failure(let error):
+        debugPrint("ERROR REQUEST MOVIE DETAIL", error.localizedDescription)
+        return
+      }
+    }
   }
 }

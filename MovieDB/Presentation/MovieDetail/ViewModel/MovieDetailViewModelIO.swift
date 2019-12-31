@@ -12,4 +12,7 @@ protocol MovieDetailViewModelInput: class {
   func requestDetailMovie(movieId id: Int)
 }
 
-protocol MovieDetailViewModelOutput: class {}
+protocol MovieDetailViewModelOutput: class {
+  var items: Observable<MovieDetail> { get }
+  var isLoading: Observable<Bool> { get }
+}

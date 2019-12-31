@@ -9,5 +9,5 @@
 import Foundation
 
 protocol MovieDetailUseCaseInterface {
-//  func loadMovieDetail(movieId: Int, completion: @escaping)
+  func loadMovieDetail(movieId: Int, completion: @escaping(Result<MovieDetail, Error>) -> Void)
 }

@@ -66,7 +66,7 @@ class MovieListViewController: UIViewController {
       break
     case .navigateToDetail(let withID):
       let detailVC = MovieDetailWireframe(movieId: withID).controller
-      navigationController?.present(detailVC, animated: true, completion: nil)
+      navigationController?.pushViewController(detailVC, animated: true)
       return
     }
   }

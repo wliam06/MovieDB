@@ -14,4 +14,16 @@ final class MovieDetailUseCase: MovieDetailUseCaseInterface {
   init(repository: MovieDetailRepositoryInterface) {
     self.repository = repository
   }
+
+  func loadMovieDetail(movieId: Int,
+                       completion: @escaping (Result<MovieDetail, Error>) -> Void) {
+    repository.requestMovieDetail(movieId: movieId) { (result) in
+      switch result {
+      case .success(let data):
+        completion(.success(data))
+      case .failure(let error):
+        completion(.failure(error))
+      }
+    }
+  }
 }
