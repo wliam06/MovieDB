@@ -19,11 +19,6 @@ final class MovieSceneDIContainer {
   func loadMovieListRepository() -> MovieListRepository {
     return MovieListRepository()
   }
-
-//  func initMovieListViewController() -> UIViewController {
-//    return MovieListViewController.create(withViewModel: MovieListViewViewModel(movieListUseCase: loadMovieListUseCase()),
-//                                          movieListViewControllerFactory: self)
-//  }
 }
 
 // MARK: - Movie List Factory
@@ -35,9 +30,4 @@ extension MovieSceneDIContainer {
   func loadMovieDetailRepository() -> MovieDetailRepository {
     return MovieDetailRepository()
   }
-
-//  func createMovieDetailViewController(withId id: Int) -> UIViewController {
-//    return MovieDetailViewController.create(with: MovieDetailViewViewModel(movieId: id,
-//                                                                           useCase: loadMovieDetailUseCase()))
-//  }
 }

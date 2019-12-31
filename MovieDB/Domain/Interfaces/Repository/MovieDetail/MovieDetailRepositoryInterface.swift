@@ -9,4 +9,5 @@
 import Foundation
 
 protocol MovieDetailRepositoryInterface: class {
+  func requestMovieDetail(movieId: Int, completion: @escaping(Result<MovieDetail, Error>) -> Void)
 }

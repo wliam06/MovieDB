@@ -10,7 +10,7 @@ import UIKit
 
 class MovieDetailWireframe: Router {
   var controller: UIViewController {
-    let view = MovieDetailViewController()
+    let view = MovieDetailViewController(movieId: movieId ?? 0)
     let repository = MovieDetailRepository()
     let usecase = MovieDetailUseCase(repository: repository)
     let viewModel = MovieDetailViewViewModel(movieId: movieId, useCase: usecase, wireframe: self)
