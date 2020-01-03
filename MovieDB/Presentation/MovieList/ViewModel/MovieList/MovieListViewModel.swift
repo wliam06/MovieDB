@@ -9,15 +9,22 @@
 import Foundation
 import MovieSDK
 
+enum MovieListViewModelLoading {
+  case none
+  case currentPage
+  case nextPage
+}
+
 protocol MovieListViewModel: MovieListViewModelInput, MovieListViewModelOutput {}
 
 final class MovieListViewViewModel: MovieListViewModel {
   private(set) var currentPage = 0
-  private var totalPageCount = 0
+  private var totalPageCount = 1
 
-  let route: Observable<MovieListViewModelRoute> = Observable(.initial)
-  let items: Observable<[Movie]> = Observable([Movie]())
-  let isLoading: Observable<Bool> = Observable(true)
+  let route: Observable<MovieListWireframeRoute> = Observable(.initial)
+  let items: Observable<MoviePage> = Observable(MoviePage(with: [:]))
+  let type: Observable<MovieListPath> = Observable(.nowPlaying)
+  let isLoading: Observable<MovieListViewModelLoading> = Observable(.none)
 
   var loadMore: Bool {
     return currentPage < totalPageCount
@@ -35,8 +42,25 @@ final class MovieListViewViewModel: MovieListViewModel {
   }
 
   // MARK: - Input
-  func requestMovieList(movieType type: MovieListPath, page: String, isLoading: Bool) {
-    load(movie: type, page: page, isLoading: isLoading)
+  func requestMovieList(index: Int) {
+    switch index {
+    case 0: // Now Playing
+      updateMovie(movie: .nowPlaying)
+    case 1: // Popular
+      updateMovie(movie: .popular)
+    case 2: // Top Rated
+      updateMovie(movie: .topRated)
+    case 3: // Upcoming
+      updateMovie(movie: .upcoming)
+    default:
+      return
+    }
+  }
+
+  func didLoadNextPage() {
+    guard loadMore, isLoading.value == .none else { return }
+
+//    load(movie: self.type.value, page: "\(self.nextPage)", isLoading: .nextPage)
   }
 
   func movieDidTapped(withId id: Int) {
@@ -44,8 +68,17 @@ final class MovieListViewViewModel: MovieListViewModel {
   }
 
   // MARK: - Private Method
-  private func load(movie: MovieListPath, page: String, isLoading: Bool) {
-    let movieRequest = MovieUseCaseResource(movieList: movie, page: page)
+  private func updateMovie(movie: MovieListPath) {
+    clearData()
+
+    load(movie: movie, isLoading: .currentPage)
+  }
+
+  private func load(movie: MovieListPath, isLoading: MovieListViewModelLoading) {
+    self.type.value = movie
+    self.isLoading.value = isLoading
+
+    let movieRequest = MovieUseCaseResource(movieList: movie, page: "\(nextPage)")
     movieListUseCase.loadMovieListByType(movie: movieRequest) { [weak self] (result) in
       guard let self = self else { return }
 
@@ -53,12 +86,18 @@ final class MovieListViewViewModel: MovieListViewModel {
       case .success(let data):
         self.currentPage = data.page
         self.totalPageCount = data.totalPages
-        self.items.value = data.movies
-        self.isLoading.value = data.movies.count > 0
-        debugPrint("SUCCESS")
+        self.items.value = data
       case .failure(let error):
         debugPrint("FAILURE", error)
       }
+
+      self.isLoading.value = .none
     }
+  }
+
+  private func clearData() {
+    currentPage = 0
+    totalPageCount = 1
+    items.value.movies.removeAll()
   }
 }

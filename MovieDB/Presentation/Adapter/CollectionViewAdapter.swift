@@ -10,14 +10,19 @@ import UIKit
 
 protocol CollectionAdapterDelegate: class {
   func movieDidTapped(withId movieId: Int)
+
+  func movieListEndOfStream(page: Int)
 }
 
 class CollectionViewAdapter: NSObject {
   private let collectionView: UICollectionView
-  private var data: [Movie]
-  weak var delegate: CollectionAdapterDelegate?
 
-  var itemSection = 1
+  private var data: [Movie]
+  private var totalPage: Int = 0
+  private var endOfStream = false
+  private var page: Int? = 1
+
+  weak var delegate: CollectionAdapterDelegate?
 
   init(collectionView: UICollectionView, delegate: CollectionAdapterDelegate?, data: [Movie]) {
     self.collectionView = collectionView
@@ -34,14 +39,18 @@ class CollectionViewAdapter: NSObject {
   }
 
   /// Update movie data
-  func update(with data: [Movie]) {
+  func update(with data: [Movie], totalPage: Int) {
     self.data = data
+    self.totalPage = totalPage
+
+    self.endOfStream = data.isEmpty
     self.collectionView.reloadData()
   }
 
   /// Append existing data
-  func append(with data: Movie) {
+  func append(with data: Movie, totalPage: Int) {
     self.data.append(data)
+    self.totalPage = totalPage
 
     self.collectionView.reloadData()
   }
@@ -67,5 +76,18 @@ extension CollectionViewAdapter: UICollectionViewDataSource, UICollectionViewDel
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
     return MovieItemCell.cellSize(width: collectionView.frame.size.width)
+  }
+
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    guard data.isEmpty == false else { return }
+
+    let percentedScroll = (scrollView.contentOffset.y + UIScreen.main.bounds.height) / scrollView.contentSize.height
+
+    if var cursor = self.page, cursor <= self.totalPage,
+      endOfStream == false && percentedScroll > 0.8 {
+      // Delegation request load more
+      delegate?.movieListEndOfStream(page: cursor)
+    }
+
   }
 }
