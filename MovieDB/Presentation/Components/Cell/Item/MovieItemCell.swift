@@ -28,7 +28,7 @@ class MovieItemCell: UICollectionViewCell {
     let collectionViewSize = width - 2
 
     return CGSize(width: collectionViewSize / 2 - 1 / 2,
-                  height: collectionViewSize / 2 + 60)
+                  height: collectionViewSize / 2 + 80)
   }
 
   override func awakeFromNib() {

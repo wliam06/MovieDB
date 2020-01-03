@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MovieSDK
 
 class MovieListViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
@@ -43,8 +44,7 @@ class MovieListViewController: UIViewController {
   private func bind(to viewModel: MovieListViewModel?) {
     viewModel?.route.observe(on: self) { [weak self] in self?.handle($0)}
     viewModel?.items.observe(on: self) { [weak self] in
-      self?.movies = $0
-      self?.adapter.update(with: $0)
+      self?.collectionViewLoadWithAnimation(movie: $0)
     }
     viewModel?.isLoading.observe(on: self) { [weak self] (status) in
       self?.isLoading = status
@@ -71,35 +71,58 @@ class MovieListViewController: UIViewController {
     }
   }
 
+  private func collectionViewLoadWithAnimation(movie: [Movie]) {
+    self.collectionView.performBatchUpdates({
+      let range = Range(uncheckedBounds: (0, self.collectionView.numberOfSections))
+      let indexSet = IndexSet(integersIn: range)
+      self.collectionView.reloadSections(indexSet)
+
+      self.movies = movie
+      self.adapter.update(with: movie)
+    }, completion: nil)
+  }
+
   @IBAction func segmentedControlTapped(_ sender: Any) {
     selectedIndex = segmentedControl.selectedSegmentIndex
 
     switch segmentedControl.selectedSegmentIndex {
     case 0:
       clearData()
-
-      viewModel?.requestMovieList(movieType: .nowPlaying, page: "1", isLoading: true)
+      requestMovieList(type: .nowPlaying, page: "1")
     case 1:
       clearData()
-      viewModel?.requestMovieList(movieType: .popular, page: "1", isLoading: true)
+      requestMovieList(type: .popular, page: "1")
     case 2:
       clearData()
-
-      viewModel?.requestMovieList(movieType: .topRated, page: "1", isLoading: true)
+      requestMovieList(type: .topRated, page: "1")
     default:
       return
     }
   }
 
+  private func requestMovieList(type: MovieListPath, page: String, isLoading: Bool? = true) {
+    self.viewModel?.requestMovieList(movieType: type, page: page, isLoading: isLoading ?? false)
+  }
+
   private func clearData() {
     guard movies.count > 0 else { return }
 
-    self.movies = [Movie]()
-    self.activityIndicator.isHidden = false
-    self.activityIndicator.startAnimating()
-    self.adapter.update(with: movies)
+    DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
+      self?.movies = [Movie]()
+      if let movie = self?.movies {
+        self?.adapter.update(with: movie)
+      }
+      self?.activityIndicator.isHidden = false
+      self?.activityIndicator.startAnimating()
+      self?.collectionView.reloadData()
+    }
 
-    collectionView.reloadData()
+//    self.movies = [Movie]()
+//    self.activityIndicator.isHidden = false
+//    self.activityIndicator.startAnimating()
+//    self.adapter.update(with: movies)
+
+//    collectionView.reloadData()
   }
 }
 
