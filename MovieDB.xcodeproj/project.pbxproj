@@ -17,7 +17,6 @@
 		5E0F92E023ACA931002C5F88 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F92DF23ACA931002C5F88 /* Observable.swift */; };
 		5E39FCC623B1FF5F007BFA90 /* CollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E39FCC523B1FF5F007BFA90 /* CollectionViewAdapter.swift */; };
 		5E39FCCA23B20DE5007BFA90 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E39FCC923B20DE5007BFA90 /* ImageViewExtension.swift */; };
-		5E39FCCD23B218EF007BFA90 /* MovieListViewModelRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E39FCCC23B218EF007BFA90 /* MovieListViewModelRoute.swift */; };
 		5E39FCD123B2267F007BFA90 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E39FCCF23B2267F007BFA90 /* MovieDetailViewController.swift */; };
 		5E39FCD223B2267F007BFA90 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E39FCD023B2267F007BFA90 /* MovieDetailViewController.xib */; };
 		5E39FCD723B226C1007BFA90 /* MovieDetailViewModelIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E39FCD623B226C1007BFA90 /* MovieDetailViewModelIO.swift */; };
@@ -76,7 +75,6 @@
 		5E0F92DF23ACA931002C5F88 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		5E39FCC523B1FF5F007BFA90 /* CollectionViewAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewAdapter.swift; sourceTree = "<group>"; };
 		5E39FCC923B20DE5007BFA90 /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
-		5E39FCCC23B218EF007BFA90 /* MovieListViewModelRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModelRoute.swift; sourceTree = "<group>"; };
 		5E39FCCF23B2267F007BFA90 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		5E39FCD023B2267F007BFA90 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		5E39FCD623B226C1007BFA90 /* MovieDetailViewModelIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModelIO.swift; sourceTree = "<group>"; };
@@ -200,14 +198,6 @@
 				5E97FA5D23B36FAF007B96D1 /* NavigationExtension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		5E39FCCB23B218DF007BFA90 /* Route */ = {
-			isa = PBXGroup;
-			children = (
-				5E39FCCC23B218EF007BFA90 /* MovieListViewModelRoute.swift */,
-			);
-			path = Route;
 			sourceTree = "<group>";
 		};
 		5E39FCCE23B2266A007BFA90 /* MovieDetail */ = {
@@ -430,7 +420,6 @@
 		5EFE209523AB6A3500FD199F /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
-				5E39FCCB23B218DF007BFA90 /* Route */,
 				5EFE209623AB6A5400FD199F /* ViewModel */,
 				5EFE209723AB6A5800FD199F /* View */,
 			);
@@ -781,7 +770,6 @@
 				5E39FCDE23B231E3007BFA90 /* MovieCarouselCell.swift in Sources */,
 				5EFEDF6323B4C1D200CD987C /* MovieDetailRepositoryInterface.swift in Sources */,
 				5E4C2E7623B61E320090037A /* MovieListWireframe.swift in Sources */,
-				5E39FCCD23B218EF007BFA90 /* MovieListViewModelRoute.swift in Sources */,
 				5E0F92CE23AC9424002C5F88 /* MovieListViewModelO.swift in Sources */,
 				5E0F92C923AC9338002C5F88 /* MovieSceneDIContainer.swift in Sources */,
 				5E0F92D323ACA18C002C5F88 /* MovieListUseCase.swift in Sources */,
@@ -953,6 +941,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BY8P5XC76R;
 				INFOPLIST_FILE = MovieDB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -972,6 +961,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BY8P5XC76R;
 				INFOPLIST_FILE = MovieDB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

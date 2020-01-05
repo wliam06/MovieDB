@@ -21,6 +21,7 @@ class MovieListViewController: UIViewController {
 
   private(set) var selectedIndex = 0
   private(set) var isLoading = true
+  private(set) var page = 1
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -37,29 +38,56 @@ class MovieListViewController: UIViewController {
                                     delegate: self, data: [])
 
     bind(to: viewModel)
+    segmentLoad(index: segmentedControl.selectedSegmentIndex)
+  }
 
-    segmentLoad()
+  private func segmentLoad(index: Int) {
+    viewModel?.requestMovieList(index: segmentedControl.selectedSegmentIndex)
   }
 
   private func bind(to viewModel: MovieListViewModel?) {
     viewModel?.route.observe(on: self) { [weak self] in self?.handle($0)}
     viewModel?.items.observe(on: self) { [weak self] in
-      self?.collectionViewLoadWithAnimation(movie: $0)
+      self?.collectionViewLoadWithAnimation(movies: $0)
     }
-    viewModel?.isLoading.observe(on: self) { [weak self] (status) in
-      self?.isLoading = status
-      self?.activityIndicator.isHidden = status
-      self?.activityIndicator.stopAnimating()
+    viewModel?.isLoading.observe(on: self, observerBlock: { [weak self] _ in
+      self?.viewIsLoading()
+    })
+  }
+
+  private func collectionViewLoadWithAnimation(movies: [Movie]) {
+    self.collectionView.performBatchUpdates({
+      let range = Range(uncheckedBounds: (0, self.collectionView.numberOfSections))
+      let indexSet = IndexSet(integersIn: range)
+      self.collectionView.reloadSections(indexSet)
+
+      self.adapter.update(with: movies)
+
+    }, completion: nil)
+  }
+
+  private func viewIsLoading() {
+    activityIndicator.isHidden = true
+
+    switch viewModel?.isLoading.value {
+    case .none:
+      return
+    case .currentPage:
+      activityIndicator.isHidden = false
+    case .nextPage:
+      activityIndicator.isHidden = false
+    default:
+      activityIndicator.isHidden = true
+      return
     }
   }
 
-  private func segmentLoad() {
-    if segmentedControl.selectedSegmentIndex == 0 {
-      viewModel?.requestMovieList(movieType: .nowPlaying, page: "1", isLoading: true)
-    }
+  @IBAction func segmentedControlTapped(_ sender: Any) {
+    viewModel?.requestMovieList(index: segmentedControl.selectedSegmentIndex)
   }
 
-  private func handle(_ route: MovieListViewModelRoute) {
+  // MARK: - Wireframe
+  private func handle(_ route: MovieListWireframeRoute) {
     switch route {
     case .initial:
       debugPrint("INITIAL")
@@ -70,63 +98,13 @@ class MovieListViewController: UIViewController {
       return
     }
   }
-
-  private func collectionViewLoadWithAnimation(movie: [Movie]) {
-    self.collectionView.performBatchUpdates({
-      let range = Range(uncheckedBounds: (0, self.collectionView.numberOfSections))
-      let indexSet = IndexSet(integersIn: range)
-      self.collectionView.reloadSections(indexSet)
-
-      self.movies = movie
-      self.adapter.update(with: movie)
-    }, completion: nil)
-  }
-
-  @IBAction func segmentedControlTapped(_ sender: Any) {
-    selectedIndex = segmentedControl.selectedSegmentIndex
-
-    switch segmentedControl.selectedSegmentIndex {
-    case 0:
-      clearData()
-      requestMovieList(type: .nowPlaying, page: "1")
-    case 1:
-      clearData()
-      requestMovieList(type: .popular, page: "1")
-    case 2:
-      clearData()
-      requestMovieList(type: .topRated, page: "1")
-    default:
-      return
-    }
-  }
-
-  private func requestMovieList(type: MovieListPath, page: String, isLoading: Bool? = true) {
-    self.viewModel?.requestMovieList(movieType: type, page: page, isLoading: isLoading ?? false)
-  }
-
-  private func clearData() {
-    guard movies.count > 0 else { return }
-
-    DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
-      self?.movies = [Movie]()
-      if let movie = self?.movies {
-        self?.adapter.update(with: movie)
-      }
-      self?.activityIndicator.isHidden = false
-      self?.activityIndicator.startAnimating()
-      self?.collectionView.reloadData()
-    }
-
-//    self.movies = [Movie]()
-//    self.activityIndicator.isHidden = false
-//    self.activityIndicator.startAnimating()
-//    self.adapter.update(with: movies)
-
-//    collectionView.reloadData()
-  }
 }
 
 extension MovieListViewController: CollectionAdapterDelegate {
+  func movieListEndOfStream() {
+    viewModel?.didLoadNextPage()
+  }
+
   func movieDidTapped(withId movieId: Int) {
     viewModel?.movieDidTapped(withId: movieId)
   }

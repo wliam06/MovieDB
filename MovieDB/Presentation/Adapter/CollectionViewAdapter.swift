@@ -10,14 +10,17 @@ import UIKit
 
 protocol CollectionAdapterDelegate: class {
   func movieDidTapped(withId movieId: Int)
+
+  func movieListEndOfStream()
 }
 
 class CollectionViewAdapter: NSObject {
   private let collectionView: UICollectionView
-  private var data: [Movie]
-  weak var delegate: CollectionAdapterDelegate?
 
-  var itemSection = 1
+  private var data: [Movie]
+  private var endOfStream = false
+
+  weak var delegate: CollectionAdapterDelegate?
 
   init(collectionView: UICollectionView, delegate: CollectionAdapterDelegate?, data: [Movie]) {
     self.collectionView = collectionView
@@ -36,6 +39,8 @@ class CollectionViewAdapter: NSObject {
   /// Update movie data
   func update(with data: [Movie]) {
     self.data = data
+    self.endOfStream = data.isEmpty
+
     self.collectionView.reloadData()
   }
 
@@ -56,6 +61,10 @@ extension CollectionViewAdapter: UICollectionViewDataSource, UICollectionViewDel
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieItemCell.reuseIdentifier(),
                                                   for: indexPath) as! MovieItemCell
     cell.imageURL = data[indexPath.row].posterPath
+
+    if indexPath.row == data.count - 1 {
+      delegate?.movieListEndOfStream()
+    }
     return cell
   }
 

@@ -10,13 +10,16 @@ import Foundation
 import MovieSDK
 
 protocol MovieListViewModelInput: class {
-  func requestMovieList(movieType type: MovieListPath, page: String, isLoading: Bool)
+  func requestMovieList(index: Int)
 
   func movieDidTapped(withId id: Int)
+
+  func didLoadNextPage()
 }
 
 protocol MovieListViewModelOutput: class {
-  var route: Observable<MovieListViewModelRoute> { get }
+  var route: Observable<MovieListWireframeRoute> { get }
   var items: Observable<[Movie]> { get }
-  var isLoading: Observable<Bool> { get }
+  var isLoading: Observable<MovieListViewModelLoading> { get }
+  var type: Observable<MovieListPath> { get }
 }
