@@ -11,5 +11,5 @@ import MovieSDK
 
 protocol MovieListRepositoryInterface {
   @discardableResult
-  func showMovieList(movie: MovieListPath, page: String, completion: @escaping(Result<MoviePage, Error>) -> Void)
+  func showMovieList(movie: MoviePath, page: String, completion: @escaping(Result<MoviePage, Error>) -> Void)
 }

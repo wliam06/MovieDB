@@ -11,7 +11,7 @@ import MovieSDK
 
 final class MovieDetailRepository: MovieDetailRepositoryInterface {
   func requestMovieDetail(movieId: Int, completion: @escaping (Result<MovieDetail, Error>) -> Void) {
-     Movies().detailOfMovie(withID: movieId) { [weak self] (response) in
+     Movies().detailOfMovie(withID: movieId) { (response) in
       switch response {
       case .success(let data):
         if let dict = data as? [String: Any] {

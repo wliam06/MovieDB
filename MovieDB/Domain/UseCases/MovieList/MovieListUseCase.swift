@@ -10,7 +10,7 @@ import Foundation
 import MovieSDK
 
 struct MovieUseCaseResource {
-  let movieList: MovieListPath
+  let movieList: MoviePath
   let page: String
 }
 
@@ -21,7 +21,7 @@ final class MovieListUseCase: MovieListUseCaseInterface {
     self.moviesRepository = moviesRepository
   }
 
-  /// Load movie list based on MovieListPath
+  /// Load movie list based on MoviePath
   func loadMovieListByType(movie: MovieUseCaseResource, completion: @escaping(Result<MoviePage, Error>) -> Void) {
     return moviesRepository.showMovieList(movie: movie.movieList, page: movie.page, completion: { (result) in
       switch result {

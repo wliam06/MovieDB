@@ -23,7 +23,7 @@ final class MovieListViewViewModel: MovieListViewModel {
 
   let route: Observable<MovieListWireframeRoute> = Observable(.initial)
   let items: Observable<[Movie]> = Observable([Movie]())
-  let type: Observable<MovieListPath> = Observable(.nowPlaying)
+  let type: Observable<MoviePath> = Observable(.nowPlaying)
   let isLoading: Observable<MovieListViewModelLoading> = Observable(.none)
 
   var loadMore: Bool {
@@ -68,13 +68,13 @@ final class MovieListViewViewModel: MovieListViewModel {
   }
 
   // MARK: - Private Method
-  private func updateMovie(movie: MovieListPath) {
+  private func updateMovie(movie: MoviePath) {
     clearData()
 
     load(movie: movie, isLoading: .currentPage)
   }
 
-  private func load(movie: MovieListPath, isLoading: MovieListViewModelLoading) {
+  private func load(movie: MoviePath, isLoading: MovieListViewModelLoading) {
     self.type.value = movie
     self.isLoading.value = isLoading
 

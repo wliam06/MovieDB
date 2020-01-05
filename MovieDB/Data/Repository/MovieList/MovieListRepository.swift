@@ -10,8 +10,8 @@ import Foundation
 import MovieSDK
 
 final class MovieListRepository: MovieListRepositoryInterface {
-  func showMovieList(movie: MovieListPath, page: String, completion: @escaping (Result<MoviePage, Error>) -> Void) {
-    Movies().listOfMovie(movie: movie, page: page) { [weak self] (response) in
+  func showMovieList(movie: MoviePath, page: String, completion: @escaping (Result<MoviePage, Error>) -> Void) {
+    Movies().listOfMovie(movie: movie, page: page) { (response) in
       switch response {
       case .success(let data):
         if let dict = data as? [String: Any] {
