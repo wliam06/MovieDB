@@ -19,7 +19,7 @@ protocol MovieListViewModelInput: class {
 
 protocol MovieListViewModelOutput: class {
   var route: Observable<MovieListWireframeRoute> { get }
-  var items: Observable<MoviePage> { get }
+  var items: Observable<[Movie]> { get }
   var isLoading: Observable<MovieListViewModelLoading> { get }
   var type: Observable<MovieListPath> { get }
 }

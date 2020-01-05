@@ -22,7 +22,7 @@ final class MovieListViewViewModel: MovieListViewModel {
   private var totalPageCount = 1
 
   let route: Observable<MovieListWireframeRoute> = Observable(.initial)
-  let items: Observable<MoviePage> = Observable(MoviePage(with: [:]))
+  let items: Observable<[Movie]> = Observable([Movie]())
   let type: Observable<MovieListPath> = Observable(.nowPlaying)
   let isLoading: Observable<MovieListViewModelLoading> = Observable(.none)
 
@@ -60,7 +60,7 @@ final class MovieListViewViewModel: MovieListViewModel {
   func didLoadNextPage() {
     guard loadMore, isLoading.value == .none else { return }
 
-//    load(movie: self.type.value, page: "\(self.nextPage)", isLoading: .nextPage)
+    load(movie: self.type.value, isLoading: .nextPage)
   }
 
   func movieDidTapped(withId id: Int) {
@@ -86,7 +86,7 @@ final class MovieListViewViewModel: MovieListViewModel {
       case .success(let data):
         self.currentPage = data.page
         self.totalPageCount = data.totalPages
-        self.items.value = data
+        self.items.value = self.items.value + data.movies
       case .failure(let error):
         debugPrint("FAILURE", error)
       }
@@ -98,6 +98,6 @@ final class MovieListViewViewModel: MovieListViewModel {
   private func clearData() {
     currentPage = 0
     totalPageCount = 1
-    items.value.movies.removeAll()
+    items.value.removeAll()
   }
 }

@@ -48,29 +48,21 @@ class MovieListViewController: UIViewController {
   private func bind(to viewModel: MovieListViewModel?) {
     viewModel?.route.observe(on: self) { [weak self] in self?.handle($0)}
     viewModel?.items.observe(on: self) { [weak self] in
-      self?.collectionViewLoadWithAnimation(movie: $0)
+      self?.collectionViewLoadWithAnimation(movies: $0)
     }
     viewModel?.isLoading.observe(on: self, observerBlock: { [weak self] _ in
       self?.viewIsLoading()
     })
   }
 
-  private func collectionViewLoadWithAnimation(movie: MoviePage) {
+  private func collectionViewLoadWithAnimation(movies: [Movie]) {
     self.collectionView.performBatchUpdates({
       let range = Range(uncheckedBounds: (0, self.collectionView.numberOfSections))
       let indexSet = IndexSet(integersIn: range)
       self.collectionView.reloadSections(indexSet)
 
-      self.movies = movie.movies
-      self.page = movie.page
+      self.adapter.update(with: movies)
 
-      if movie.page == 1 {
-        self.adapter.update(with: movie.movies, totalPage: movie.totalPages)
-      } else if movie.page > 1{
-        self.adapter.append(with: movie.movies[0], totalPage: movie.totalPages)
-      } else {
-        return
-      }
     }, completion: nil)
   }
 
@@ -109,8 +101,8 @@ class MovieListViewController: UIViewController {
 }
 
 extension MovieListViewController: CollectionAdapterDelegate {
-  func movieListEndOfStream(page: Int) {
-    self.segmentLoad(index: segmentedControl.selectedSegmentIndex)
+  func movieListEndOfStream() {
+    viewModel?.didLoadNextPage()
   }
 
   func movieDidTapped(withId movieId: Int) {

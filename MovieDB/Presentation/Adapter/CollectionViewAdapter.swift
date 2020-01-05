@@ -11,16 +11,14 @@ import UIKit
 protocol CollectionAdapterDelegate: class {
   func movieDidTapped(withId movieId: Int)
 
-  func movieListEndOfStream(page: Int)
+  func movieListEndOfStream()
 }
 
 class CollectionViewAdapter: NSObject {
   private let collectionView: UICollectionView
 
   private var data: [Movie]
-  private var totalPage: Int = 0
   private var endOfStream = false
-  private var page: Int? = 1
 
   weak var delegate: CollectionAdapterDelegate?
 
@@ -39,18 +37,16 @@ class CollectionViewAdapter: NSObject {
   }
 
   /// Update movie data
-  func update(with data: [Movie], totalPage: Int) {
+  func update(with data: [Movie]) {
     self.data = data
-    self.totalPage = totalPage
-
     self.endOfStream = data.isEmpty
+
     self.collectionView.reloadData()
   }
 
   /// Append existing data
-  func append(with data: Movie, totalPage: Int) {
+  func append(with data: Movie) {
     self.data.append(data)
-    self.totalPage = totalPage
 
     self.collectionView.reloadData()
   }
@@ -65,6 +61,10 @@ extension CollectionViewAdapter: UICollectionViewDataSource, UICollectionViewDel
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieItemCell.reuseIdentifier(),
                                                   for: indexPath) as! MovieItemCell
     cell.imageURL = data[indexPath.row].posterPath
+
+    if indexPath.row == data.count - 1 {
+      delegate?.movieListEndOfStream()
+    }
     return cell
   }
 
@@ -76,18 +76,5 @@ extension CollectionViewAdapter: UICollectionViewDataSource, UICollectionViewDel
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
     return MovieItemCell.cellSize(width: collectionView.frame.size.width)
-  }
-
-  func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    guard data.isEmpty == false else { return }
-
-    let percentedScroll = (scrollView.contentOffset.y + UIScreen.main.bounds.height) / scrollView.contentSize.height
-
-    if var cursor = self.page, cursor <= self.totalPage,
-      endOfStream == false && percentedScroll > 0.8 {
-      // Delegation request load more
-      delegate?.movieListEndOfStream(page: cursor)
-    }
-
   }
 }
