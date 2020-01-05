@@ -6,7 +6,7 @@ inhibit_all_warnings!
 use_frameworks!
 
 def movie_frameworks
-  pod 'MovieSDK', :path => '../MovieFreeAPI'
+  pod 'MovieSDK'#, :path => '../MovieFreeAPI'
 end
 
 target 'MovieDB' do
