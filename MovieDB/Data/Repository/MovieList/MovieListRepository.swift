@@ -11,7 +11,7 @@ import MovieSDK
 
 final class MovieListRepository: MovieListRepositoryInterface {
   func showMovieList(movie: MovieListPath, page: String, completion: @escaping (Result<MoviePage, Error>) -> Void) {
-    MovieListSession().listOfMove(movie: movie, page: page) { [weak self] (response) in
+    Movies().listOfMovie(movie: movie, page: page) { [weak self] (response) in
       switch response {
       case .success(let data):
         if let dict = data as? [String: Any] {

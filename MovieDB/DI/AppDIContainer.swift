@@ -14,7 +14,7 @@ final class AppDIContainer {
 
   // MARK: - MovieSDK
   func instanceMovieSDK() {
-      ServiceManager.start(apiKey: appConfigurations.apiKey)
+    ServiceManager.start(apiKey: appConfigurations.apiKey)
   }
 
   func firstRoot() -> UIViewController {
