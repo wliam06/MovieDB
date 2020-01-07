@@ -31,6 +31,10 @@ Coordinator is used to managed the coupled and dependent of each other controlle
 ### Adapter Pattern
 Adapter is a structural design pattern that allows object to connect and work together. In short, it transforms the interface of an object to adapt.
 
+## Updated:
+ - [ ]  Search feature
+ - [ ]  Trailer Video
+ - [ ]  Unit test
 
 ## Folder Structure
 To organize groups, files and code into more specifically. I use this structure as below:
@@ -43,3 +47,4 @@ To organize groups, files and code into more specifically. I use this structure 
  
  ## Built with
  Using `Xcode 10.3` and written in `Swift 5`
+
