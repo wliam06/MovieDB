@@ -14,7 +14,7 @@ class MovieListViewController: UIViewController {
   @IBOutlet weak var segmentedControl: UISegmentedControl!
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-  var viewModel: MovieListViewViewModel?
+  var viewModel: MovieListViewModel?
 
   private var movies: [Movie]!
   private var adapter: CollectionViewAdapter!
