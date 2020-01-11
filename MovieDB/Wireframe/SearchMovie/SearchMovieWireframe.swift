@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchMovieWireframe: Router {
+class SearchMovieWireframe: ParentNavigation, Router {
   var controller: UIViewController {
     let view = SearchMovieViewController()
     let repository = SearchMovieRepository()

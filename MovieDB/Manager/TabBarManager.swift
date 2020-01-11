@@ -9,5 +9,30 @@
 import UIKit
 
 final class TabBarManager: UITabBarController {
+  private let movieListWireframe: MovieListWireframe
+  private let searchMovieWireframe: SearchMovieWireframe
+
+  init() {
+    movieListWireframe = MovieListWireframe()
+    searchMovieWireframe = SearchMovieWireframe()
+
+    super.init(nibName: nil, bundle: nil)
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
   
+    
+
+    setViewControllers([movieListWireframe.controller,
+                        searchMovieWireframe.controller], animated: false)
+  }
+
+  private func configureTab() {
+    
+  }
 }

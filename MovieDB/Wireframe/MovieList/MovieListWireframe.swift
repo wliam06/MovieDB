@@ -12,7 +12,7 @@ enum MovieListWireframeRoute {
   case navigateToDetail(withID: Int)
 }
 
-class MovieListWireframe: Router {
+class MovieListWireframe: ParentNavigation, Router {
   var controller: UIViewController {
     let view = MovieListViewController()
     let repository = MovieListRepository()
