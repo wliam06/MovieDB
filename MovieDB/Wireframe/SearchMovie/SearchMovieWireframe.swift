@@ -8,15 +8,17 @@
 
 import UIKit
 
-class SearchMovieWireframe: ParentNavigation, Router {
+class SearchMovieWireframe: Router {
   var controller: UIViewController {
     let view = SearchMovieViewController()
     let repository = SearchMovieRepository()
     let usecase = SearchMovieUseCase(repository: repository)
     let viewModel = SearchMovieViewViewModel(usecase: usecase)
+    let navigationController = UINavigationController(rootViewController: view)
+    navigationController.tabBarItem.title = "Search"
 
     view.viewModel = viewModel
 
-    return view
+    return navigationController
   }
 }

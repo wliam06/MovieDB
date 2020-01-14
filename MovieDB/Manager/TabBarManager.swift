@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum TabBarIndex: Int {
+  case list
+  case search
+}
+
 final class TabBarManager: UITabBarController {
   private let movieListWireframe: MovieListWireframe
   private let searchMovieWireframe: SearchMovieWireframe
@@ -25,14 +30,25 @@ final class TabBarManager: UITabBarController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-  
-    
 
+    configureTab()
+  
     setViewControllers([movieListWireframe.controller,
                         searchMovieWireframe.controller], animated: false)
   }
 
   private func configureTab() {
-    
+    // Make tab bar background white
+    tabBar.isTranslucent = false
+
+    // Give shadow to tab bar
+    tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+    tabBar.layer.shadowRadius = 10
+    tabBar.layer.shadowColor = UIColor.black.cgColor
+    tabBar.layer.shadowOpacity = 0.3
+
+    // Remove top line at tab bar
+    tabBar.shadowImage = UIImage()
+    tabBar.backgroundImage = UIImage()
   }
 }

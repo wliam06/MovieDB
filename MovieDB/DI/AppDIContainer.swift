@@ -18,8 +18,6 @@ final class AppDIContainer {
   }
 
   func firstRoot() -> UIViewController {
-//    return MovieListWireframe().controller
     return TabBarManager()
   }
-
 }

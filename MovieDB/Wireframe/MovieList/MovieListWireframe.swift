@@ -12,15 +12,18 @@ enum MovieListWireframeRoute {
   case navigateToDetail(withID: Int)
 }
 
-class MovieListWireframe: ParentNavigation, Router {
+class MovieListWireframe: Router {
   var controller: UIViewController {
     let view = MovieListViewController()
     let repository = MovieListRepository()
     let usecase = MovieListUseCase(moviesRepository: repository)
     let viewModel = MovieListViewViewModel(movieListUseCase: usecase)
 
+    let navigationController = UINavigationController(rootViewController: view)
+    navigationController.tabBarItem.title = "List"
+
     view.viewModel = viewModel
 
-    return view
+    return navigationController
   }
 }
