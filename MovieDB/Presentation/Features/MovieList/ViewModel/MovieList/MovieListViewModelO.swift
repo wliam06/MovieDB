@@ -9,7 +9,7 @@
 import Foundation
 import MovieSDK
 
-protocol MovieListViewModelInput: class {
+protocol MovieListViewModelInput {
   func requestMovieList(index: Int)
 
   func movieDidTapped(withId id: Int)
@@ -17,7 +17,7 @@ protocol MovieListViewModelInput: class {
   func didLoadNextPage()
 }
 
-protocol MovieListViewModelOutput: class {
+protocol MovieListViewModelOutput {
   var route: Observable<MovieListWireframeRoute> { get }
   var items: Observable<[Movie]> { get }
   var isLoading: Observable<MovieListViewModelLoading> { get }

@@ -1,15 +1,14 @@
 //
-//  MovieDBTests.swift
+//  MovieListUseCaseTests.swift
 //  MovieDBTests
 //
-//  Created by William on 19/12/19.
-//  Copyright © 2019 William. All rights reserved.
+//  Created by William on 18/01/20.
+//  Copyright © 2020 William. All rights reserved.
 //
 
 import XCTest
-@testable import MovieDB
 
-class MovieDBTests: XCTestCase {
+class MovieListUseCaseTests: XCTestCase {
   override func setUp() {
     // Put setup code here. This method is called before the invocation of each test method in the class.
   }
@@ -29,4 +28,5 @@ class MovieDBTests: XCTestCase {
         // Put the code you want to measure the time of here.
     }
   }
+
 }

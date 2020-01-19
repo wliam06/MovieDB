@@ -21,10 +21,10 @@ final class MovieListViewViewModel: MovieListViewModel {
   private(set) var currentPage = 0
   private var totalPageCount = 1
 
-  let route: Observable<MovieListWireframeRoute> = Observable(.initial)
-  let items: Observable<[Movie]> = Observable([Movie]())
-  let type: Observable<MoviePath> = Observable(.nowPlaying)
-  let isLoading: Observable<MovieListViewModelLoading> = Observable(.none)
+  internal let route: Observable<MovieListWireframeRoute> = Observable(.initial)
+  internal let items: Observable<[Movie]> = Observable([Movie]())
+  internal let type: Observable<MoviePath> = Observable(.nowPlaying)
+  internal let isLoading: Observable<MovieListViewModelLoading> = Observable(.none)
 
   var loadMore: Bool {
     return currentPage < totalPageCount

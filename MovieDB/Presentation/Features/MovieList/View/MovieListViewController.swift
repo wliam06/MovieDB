@@ -63,6 +63,7 @@ class MovieListViewController: UIViewController {
 
       self.adapter.update(with: movies)
 
+      activityIndicator.stopAnimating()
     }, completion: nil)
   }
 

@@ -9,7 +9,6 @@
 import Foundation
 import MovieSDK
 
-protocol MovieListRepositoryInterface {
-  @discardableResult
+protocol MovieListRepositoryInterface: class {
   func showMovieList(movie: MoviePath, page: String, completion: @escaping(Result<MoviePage, Error>) -> Void)
 }

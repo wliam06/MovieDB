@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MovieListUseCaseInterface {
+protocol MovieListUseCaseInterface: class {
   func loadMovieListByType(movie: MovieUseCaseResource,
                            completion: @escaping(Result<MoviePage, Error>) -> Void)
 }
