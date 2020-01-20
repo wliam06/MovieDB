@@ -10,7 +10,7 @@ import Foundation
 public enum SearchPath {
   case search
 
-  var path: String {
+  public var path: String {
     switch self {
     case .search:
       return "search/movie"

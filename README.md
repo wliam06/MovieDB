@@ -1,4 +1,4 @@
-# MVVM-MovieDB
+# MVVM+R MovieDB
 Welcome to MVVM-MovieDB with [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) + ([Coordinator Pattern](https://www.raywenderlich.com/158-coordinator-tutorial-for-ios-getting-started) & [Adapter Pattern](https://www.tutorialspoint.com/design_pattern/adapter_pattern.htm)). Using [MovieSDK](https://github.com/wliam06/MovieFreeAPI) to obtain the movie data. 
 
 ## Summary
@@ -21,7 +21,7 @@ MVVM is a structural design pattern that separates objects into three groups:
 In short, `Clean architecture` helps us for an effective testing strategy because it isolated in individual modules. Besides that, easily in multiple works of stories and has a good structure to tell readers about the system (it's called [Scream](https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html)). 
 
 
-### Coordinator Pattern
+### Router Pattern
 <p align = "center">
   <img src = "https://user-images.githubusercontent.com/25744906/71777984-4843cb80-2fda-11ea-8ff5-385cb02ae1e3.png">
 </p>
