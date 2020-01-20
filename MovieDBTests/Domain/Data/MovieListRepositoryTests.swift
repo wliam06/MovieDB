@@ -28,8 +28,9 @@ class MovieListRepositoryTests: XCTestCase {
     super.tearDown()
   }
 
-  func testLoadMovie() {
-    
+  func testShowMovieListSuccess() {
+    mockRepository.stubbedShowMovieListCompletionResult = (.failure(ErrorTest.invalid), ())
+
   }
 
   func testPerformanceExample() {

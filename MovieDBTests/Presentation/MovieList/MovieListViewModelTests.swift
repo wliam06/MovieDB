@@ -60,6 +60,28 @@ class MovieListViewModelTests: XCTestCase {
     XCTAssert(mockUsecase.invokedLoadMovieListByTypeParameters?.movie.page == "1", "Expect param is match")
   }
 
+  func testMoviePagination() {
+    let mockData: [String: Any] = ["page": 1, "totalPages": 2, "movies": []]
+    let mockMoviePage = MoviePage(with: mockData)
+
+    mockUsecase.stubbedLoadMovieListByTypeCompletionResult = ((.success(mockMoviePage)), ())
+
+    viewModel.requestMovieList(index: 0)
+
+    XCTAssertEqual(viewModel.currentPage, 1)
+    XCTAssertTrue(viewModel.loadMore)
+
+    let mockData2: [String: Any] = ["page": 2, "totalPages": 2, "movies": []]
+    let mockMoviePage2 = MoviePage(with: mockData2)
+
+    mockUsecase.stubbedLoadMovieListByTypeCompletionResult = ((.success(mockMoviePage2)), ())
+
+    viewModel.didLoadNextPage()
+
+    XCTAssertEqual(viewModel.currentPage, 2)
+    XCTAssertFalse(viewModel.loadMore)
+  }
+
   func testPerformanceExample() {
     self.measure {
         // Put the code you want to measure the time of here.
