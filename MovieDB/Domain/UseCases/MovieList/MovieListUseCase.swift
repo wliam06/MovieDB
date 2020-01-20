@@ -9,13 +9,9 @@
 import Foundation
 import MovieSDK
 
-struct MovieUseCaseResource: Equatable {
+struct MovieUseCaseResource {
   let movieList: MoviePath
   let page: String
-
-  static func == (lhs: MovieUseCaseResource, rhs: MovieUseCaseResource) -> Bool {
-    return lhs.page == rhs.page
-  }
 }
 
 final class MovieListUseCase: MovieListUseCaseInterface {
@@ -36,4 +32,5 @@ final class MovieListUseCase: MovieListUseCaseInterface {
       }
     })
   }
+
 }

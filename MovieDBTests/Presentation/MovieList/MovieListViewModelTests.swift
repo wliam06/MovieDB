@@ -24,22 +24,40 @@ class MovieListViewModelTests: XCTestCase {
     viewModel = nil
   }
 
-  func testSuccessRequestMovieList() {
+  func testSuccessRequestNowPlayingMovie() {
     viewModel.requestMovieList(index: 0)
-
-    let mockResource = MovieUseCaseResource(movieList: .nowPlaying, page: "1")
 
     XCTAssert(mockUsecase.invokedLoadMovieListByType == true, "Expect load movie list by type is called")
     XCTAssert(mockUsecase.invokedLoadMovieListByTypeCount == 1, "Expect load movie list by type is called once")
-    XCTAssert(mockUsecase.invokedLoadMovieListByTypeParameters?.movie == mockResource, "Expect same param")
+    XCTAssert(mockUsecase.invokedLoadMovieListByTypeParameters?.movie.movieList.path == "movie/now_playing", "Expect same param")
     XCTAssert(mockUsecase.invokedLoadMovieListByTypeParameters?.movie.page == "1", "Expect param is match")
   }
 
-  func testFailedRequestMovieList() {
-    viewModel.requestMovieList(index: 4)
+  func testSuccessRequestPopularMovie() {
+    viewModel.requestMovieList(index: 1)
 
-    XCTAssert(mockUsecase.invokedLoadMovieListByType == false, "Expect load movie list by type is called")
-    XCTAssert(mockUsecase.invokedLoadMovieListByTypeCount == 0, "Expect load movie list by type is called once")
+    XCTAssert(mockUsecase.invokedLoadMovieListByType == true, "Expect load movie list by type is called")
+    XCTAssert(mockUsecase.invokedLoadMovieListByTypeCount == 1, "Expect load movie list by type is called once")
+    XCTAssert(mockUsecase.invokedLoadMovieListByTypeParameters?.movie.movieList.path == "movie/popular", "Expect same param")
+    XCTAssert(mockUsecase.invokedLoadMovieListByTypeParameters?.movie.page == "1", "Expect param is match")
+  }
+
+  func testSuccessRequestMovie() {
+    viewModel.requestMovieList(index: 2)
+
+    XCTAssert(mockUsecase.invokedLoadMovieListByType == true, "Expect load movie list by type is called")
+    XCTAssert(mockUsecase.invokedLoadMovieListByTypeCount == 1, "Expect load movie list by type is called once")
+    XCTAssert(mockUsecase.invokedLoadMovieListByTypeParameters?.movie.movieList.path == "movie/top_rated", "Expect same param")
+    XCTAssert(mockUsecase.invokedLoadMovieListByTypeParameters?.movie.page == "1", "Expect param is match")
+  }
+
+  func testSuccessRequestUpcomingMovie() {
+    viewModel.requestMovieList(index: 3)
+
+    XCTAssert(mockUsecase.invokedLoadMovieListByType == true, "Expect load movie list by type is called")
+    XCTAssert(mockUsecase.invokedLoadMovieListByTypeCount == 1, "Expect load movie list by type is called once")
+    XCTAssert(mockUsecase.invokedLoadMovieListByTypeParameters?.movie.movieList.path == "movie/upcoming", "Expect same param")
+    XCTAssert(mockUsecase.invokedLoadMovieListByTypeParameters?.movie.page == "1", "Expect param is match")
   }
 
   func testPerformanceExample() {

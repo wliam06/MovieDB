@@ -80,18 +80,18 @@ final class MovieListViewViewModel: MovieListViewModel {
 
     let movieRequest = MovieUseCaseResource(movieList: movie, page: "\(nextPage)")
     movieListUseCase.loadMovieListByType(movie: movieRequest) { [weak self] (result) in
-      guard let self = self else { return }
-
       switch result {
       case .success(let data):
-        self.currentPage = data.page
-        self.totalPageCount = data.totalPages
-        self.items.value = self.items.value + data.movies
+        self?.currentPage = data.page
+        self?.totalPageCount = data.totalPages
+        if let movies = self?.items.value {
+          self?.items.value = movies + data.movies
+        }
       case .failure(let error):
-        debugPrint("FAILURE", error)
+        return
       }
 
-      self.isLoading.value = .none
+      self?.isLoading.value = .none
     }
   }
 

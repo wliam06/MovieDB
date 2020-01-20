@@ -15,7 +15,7 @@ public enum MoviePath {
   case detail(movieID: Int)
   case video(movieID: Int)
 
-  var path: String {
+  public var path: String {
     switch self {
     case .nowPlaying:
       return "movie/now_playing"

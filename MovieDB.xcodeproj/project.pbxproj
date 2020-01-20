@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4270E02C561E77409A85FA94 /* Pods_MovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CA32648DC3F860A69636A6F /* Pods_MovieDBTests.framework */; };
+		5E05DE5B23D5673100AC66E6 /* MovieListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E05DE5A23D5673100AC66E6 /* MovieListRepositoryTests.swift */; };
+		5E05DE5E23D567F000AC66E6 /* MockMovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E05DE5D23D567F000AC66E6 /* MockMovieService.swift */; };
 		5E0F92C923AC9338002C5F88 /* MovieSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F92C823AC9338002C5F88 /* MovieSceneDIContainer.swift */; };
 		5E0F92CB23AC93EE002C5F88 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F92CA23AC93EE002C5F88 /* MovieListViewModel.swift */; };
 		5E0F92CE23AC9424002C5F88 /* MovieListViewModelO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F92CD23AC9424002C5F88 /* MovieListViewModelO.swift */; };
@@ -72,6 +74,8 @@
 		0EC8F3EFBBC972AEEDC223D0 /* Pods-MovieDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.debug.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.debug.xcconfig"; sourceTree = "<group>"; };
 		3CA32648DC3F860A69636A6F /* Pods_MovieDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A718A9565EE0697C523A10 /* Pods-MovieDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBTests.release.xcconfig"; path = "Target Support Files/Pods-MovieDBTests/Pods-MovieDBTests.release.xcconfig"; sourceTree = "<group>"; };
+		5E05DE5A23D5673100AC66E6 /* MovieListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRepositoryTests.swift; sourceTree = "<group>"; };
+		5E05DE5D23D567F000AC66E6 /* MockMovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieService.swift; sourceTree = "<group>"; };
 		5E0F92C823AC9338002C5F88 /* MovieSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSceneDIContainer.swift; sourceTree = "<group>"; };
 		5E0F92CA23AC93EE002C5F88 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 		5E0F92CD23AC9424002C5F88 /* MovieListViewModelO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModelO.swift; sourceTree = "<group>"; };
@@ -144,6 +148,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E05DE5923D5671900AC66E6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5E05DE5A23D5673100AC66E6 /* MovieListRepositoryTests.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5E05DE5C23D567D800AC66E6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5E05DE5D23D567F000AC66E6 /* MockMovieService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		5E0F92CC23AC9408002C5F88 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +338,7 @@
 		5E6BE23E23D348A80094A1D1 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				5E05DE5923D5671900AC66E6 /* Data */,
 				5E6BE23F23D348B60094A1D1 /* Interfaces */,
 				5E6BE24023D348BC0094A1D1 /* UseCases */,
 			);
@@ -350,6 +371,7 @@
 		5E6BE24523D349760094A1D1 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				5E05DE5C23D567D800AC66E6 /* Service */,
 				5E6BE24623D3497A0094A1D1 /* MovieList */,
 			);
 			path = Mock;
@@ -881,9 +903,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E05DE5B23D5673100AC66E6 /* MovieListRepositoryTests.swift in Sources */,
 				5E1E2B7C23D4289B00BC6323 /* MockMovieListViewModelOutput.swift in Sources */,
 				5E1E2B7E23D4296E00BC6323 /* MovieListViewModelTests.swift in Sources */,
 				5E6BE24423D349300094A1D1 /* MovieListUseCaseTests.swift in Sources */,
+				5E05DE5E23D567F000AC66E6 /* MockMovieService.swift in Sources */,
 				5E7CF8DD23AB66F8000ACA33 /* MovieDBTests.swift in Sources */,
 				5E6BE24B23D349D90094A1D1 /* MockMovieListUseCaseInterface.swift in Sources */,
 				5E6BE24923D3499A0094A1D1 /* MockMovieListRepositoryInterface.swift in Sources */,

@@ -16,6 +16,7 @@ class MockMovieListRepositoryInterface: MovieListRepositoryInterface {
   var invokedShowMovieListParameters: (movie: MoviePath, page: String)?
   var invokedShowMovieListParametersList = [(movie: MoviePath, page: String)]()
   var stubbedShowMovieListCompletionResult: (Result<MoviePage, Error>, Void)?
+
   func showMovieList(movie: MoviePath, page: String, completion: @escaping(Result<MoviePage, Error>) -> Void) {
     invokedShowMovieList = true
     invokedShowMovieListCount += 1
