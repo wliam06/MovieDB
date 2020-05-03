@@ -1,5 +1,5 @@
 # MVVM+R MovieDB
-Welcome to MVVM-MovieDB with [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) + ([Coordinator Pattern](https://www.raywenderlich.com/158-coordinator-tutorial-for-ios-getting-started) & [Adapter Pattern](https://www.tutorialspoint.com/design_pattern/adapter_pattern.htm)). Using [MovieSDK](https://github.com/wliam06/MovieFreeAPI) to obtain the movie data. 
+Welcome to MVVM-MovieDB with [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) + (Router & [Adapter Pattern](https://www.tutorialspoint.com/design_pattern/adapter_pattern.htm)). Using [MovieSDK](https://github.com/wliam06/MovieFreeAPI) to obtain the movie data. 
 
 ## Summary
 
@@ -26,7 +26,7 @@ In short, `Clean architecture` helps us for an effective testing strategy becaus
   <img src = "https://user-images.githubusercontent.com/25744906/71777984-4843cb80-2fda-11ea-8ff5-385cb02ae1e3.png">
 </p>
 
-Coordinator is used to managed the coupled and dependent of each other controllers when using a navigation.
+Router is used to managed the coupled and dependent of each other controllers when using a navigation.
 
 ### Adapter Pattern
 Adapter is a structural design pattern that allows object to connect and work together. In short, it transforms the interface of an object to adapt.
