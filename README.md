@@ -1,5 +1,5 @@
 # MVVM+R MovieDB
-Welcome to MVVM-MovieDB with [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) + (Router & [Adapter Pattern](https://www.tutorialspoint.com/design_pattern/adapter_pattern.htm)). Using [MovieSDK](https://github.com/wliam06/MovieFreeAPI) to obtain the movie data. 
+Welcome to MVVM-MovieDB with [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) + (Router & [Adapter Pattern](https://www.tutorialspoint.com/design_pattern/adapter_pattern.htm)). To obtain the movie data, just access into [MovieSDK](https://github.com/wliam06/MovieFreeAPI).
 
 ## Summary
 
