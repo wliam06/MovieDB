@@ -33,12 +33,12 @@ Adapter is a structural design pattern that allows object to connect and work to
 
 ## Folder Structure
 To organize groups, files and code into more specifically. I use this structure as below:
- - `Application` - contain based of `Application`.
- - `DI` - contains `Dependency Injection` as central units.
- - `Data` - contains `Repository` as coordinate data layer.
- - `Domain` - contains of `Entities`, `Use Cases`,  and `Interfaces`.
- - `Presentation` - contains of `View` and `ViewModel`.
- - `Wireframe` - contains of controller route.
+ - [Application](https://github.com/wliam06/MVVM-MovieDB/tree/master/MovieDB/Application) - contain based of application launched.
+ - [DI](https://github.com/wliam06/MVVM-MovieDB/tree/master/MovieDB/DI) - contains `Dependency Injection` as central units.
+ - [Data](https://github.com/wliam06/MVVM-MovieDB/tree/master/MovieDB/Data/Repository) - contains `Repository` as coordinate data layer.
+ - [Domain](https://github.com/wliam06/MVVM-MovieDB/tree/master/MovieDB/Domain) - contains of `Entities`, `Use Cases`,  and `Interfaces`.
+ - [Presentation](https://github.com/wliam06/MVVM-MovieDB/tree/master/MovieDB/Presentation) - contains of `View` and `ViewModel`.
+ - [Wireframe](https://github.com/wliam06/MVVM-MovieDB/tree/master/MovieDB/Wireframe) - contains of application routing management.
  
  ## Built with
  Using `Xcode 10.3` and written in `Swift 5`
