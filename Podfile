@@ -14,3 +14,8 @@ target 'MovieDBTests' do
   inherit! :search_paths
   frameworks
 end
+
+target 'MovieDBUITests' do
+  inherit! :search_paths
+  frameworks
+end

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='MovieDBUITests.xctest' tests='4' failures='0'>
+  <testsuite name='MovieDBTests.MovieDBTests' tests='2' failures='0'>
+    <testcase classname='MovieDBTests.MovieDBTests' name='testExample' time='0.006'/>
+    <testcase classname='MovieDBTests.MovieDBTests' name='testPerformanceExample' time='0.292'/>
+  </testsuite>
+  <testsuite name='MovieDBUITests.MovieDBUITests' tests='2' failures='0'>
+    <testcase classname='MovieDBUITests.MovieDBUITests' name='testExample' time='2.352'/>
+    <testcase classname='MovieDBUITests.MovieDBUITests' name='testLaunchPerformance' time='17.963'/>
+  </testsuite>
+</testsuites>
