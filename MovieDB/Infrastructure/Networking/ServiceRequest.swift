@@ -19,7 +19,8 @@ public enum NetworkError: Error {
 public protocol NetworkService {
   typealias CompletionHandler = (Result<Data?, NetworkError>) -> Void
 
-  func request(endpoint: Requestable, completion: @escaping CompletionHandler) -> URLSessionTask?
+  func request(endpoint: Requestable,
+               completion: @escaping CompletionHandler) -> URLSessionTask?
 }
 
 public final class ServiceRequest {
@@ -32,7 +33,8 @@ public final class ServiceRequest {
     self.session = session
   }
 
-  private func request(request: URLRequest, completion: @escaping CompletionHandler) -> URLSessionTask {
+  private func request(request: URLRequest,
+                       completion: @escaping CompletionHandler) -> URLSessionTask {
     let dataTask = session.request(request) { (data, response, error) in
       if let err = error {
         var networkError: NetworkError
@@ -63,6 +65,8 @@ public final class ServiceRequest {
   }
 }
 
+
+// MARK: - NetworkService
 extension ServiceRequest: NetworkService {
   public func request(endpoint: Requestable, completion: @escaping CompletionHandler) -> URLSessionTask? {
     do {
@@ -71,6 +75,19 @@ extension ServiceRequest: NetworkService {
     } catch {
       completion(.failure(.urlGeneration))
       return nil
+    }
+  }
+}
+
+extension NetworkError {
+  public var notFoundStatus: Bool { return hasStatusCode(404) }
+
+  public func hasStatusCode(_ statusCode: Int) -> Bool {
+    switch self {
+    case let .error(code, _):
+      return code == statusCode
+    default:
+      return false
     }
   }
 }

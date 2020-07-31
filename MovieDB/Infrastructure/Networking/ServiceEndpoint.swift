@@ -77,7 +77,6 @@ public class Endpoint<R>: ResponseRequestable {
   }
 }
 
-
 // MARK: - Requestable
 extension Requestable {
   func url(with config: ServiceConfigurable) throws -> URL {

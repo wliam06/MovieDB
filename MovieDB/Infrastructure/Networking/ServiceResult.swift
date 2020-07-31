@@ -36,6 +36,7 @@ public final class ServiceDataResult {
   }
 }
 
+// MARK: - ServiceDataRequest
 extension ServiceDataResult: ServiceDataRequest {
   private func resolve(error: NetworkError) -> ServiceDataError {
     let resolvedError = self.errorResolver.resolve(error: error)
