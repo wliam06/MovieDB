@@ -16,11 +16,13 @@ private enum NetworkErrorMock: Error {
 class ServiceSessionTests: XCTestCase {
 
   func test_SuccessRequest() {
+    let mockDataTask = MockURLSessionDataTask()
     let config = MockServiceConfigurable()
     let expectation = self.expectation(description: "Return data")
     let mockData = "Response Data".data(using: .utf8)!
 
     let mockSession = MockServiceSession(response: nil, data: mockData, error: nil)
+    mockSession.dataTask = mockDataTask
     let sut = ServiceRequest(config: config, session: mockSession)
 
     let endpoint = MockServiceEndpoint(path: "Https://mock.com", method: .get)
@@ -36,6 +38,7 @@ class ServiceSessionTests: XCTestCase {
     })
 
     wait(for: [expectation], timeout: 0.1)
+//    XCTAssert(mockDataTask.resumeWasCalled)
   }
 
   func test_NetworkURLRequestCancelledError() {

@@ -20,7 +20,7 @@ public protocol NetworkService {
   typealias CompletionHandler = (Result<Data?, NetworkError>) -> Void
 
   func request(endpoint: Requestable,
-               completion: @escaping CompletionHandler) -> URLSessionTask?
+               completion: @escaping CompletionHandler) -> URLSessionDataTaskProtocol?
 }
 
 public final class ServiceRequest {
@@ -34,7 +34,7 @@ public final class ServiceRequest {
   }
 
   private func request(request: URLRequest,
-                       completion: @escaping CompletionHandler) -> URLSessionTask {
+                       completion: @escaping CompletionHandler) -> URLSessionDataTaskProtocol {
     let dataTask = session.request(request) { (data, response, error) in
       if let err = error {
         var networkError: NetworkError
@@ -68,7 +68,7 @@ public final class ServiceRequest {
 
 // MARK: - NetworkService
 extension ServiceRequest: NetworkService {
-  public func request(endpoint: Requestable, completion: @escaping CompletionHandler) -> URLSessionTask? {
+  public func request(endpoint: Requestable, completion: @escaping CompletionHandler) -> URLSessionDataTaskProtocol? {
     do {
       let urlRequest = try endpoint.urlRequest(with: config)
       return request(request: urlRequest, completion: completion)

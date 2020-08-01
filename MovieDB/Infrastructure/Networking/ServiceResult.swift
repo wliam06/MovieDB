@@ -19,10 +19,12 @@ public protocol ServiceDataRequest {
   typealias CompletionHandler<T> = (Result<T, ServiceDataError>) -> Void
 
   @discardableResult
-  func request<T: Decodable, E: ResponseRequestable>(endpoint: E, completion: @escaping CompletionHandler<T>) -> URLSessionTask? where E.Response == T
+  func request<T: Decodable, E: ResponseRequestable>(endpoint: E,
+                                                     completion: @escaping CompletionHandler<T>) -> URLSessionDataTaskProtocol? where E.Response == T
 
   @discardableResult
-  func request<E: ResponseRequestable>(endpoint: E, completion: @escaping CompletionHandler<Void>) -> URLSessionTask? where E.Response == Void
+  func request<E: ResponseRequestable>(endpoint: E,
+                                       completion: @escaping CompletionHandler<Void>) -> URLSessionDataTaskProtocol? where E.Response == Void
 }
 
 public final class ServiceDataResult {
@@ -54,7 +56,7 @@ extension ServiceDataResult: ServiceDataRequest {
   }
 
   public func request<T, E>(endpoint: E,
-                            completion: @escaping CompletionHandler<T>) -> URLSessionTask? where T : Decodable, T == E.Response, E : ResponseRequestable {
+                            completion: @escaping CompletionHandler<T>) -> URLSessionDataTaskProtocol? where T : Decodable, T == E.Response, E : ResponseRequestable {
     return self.service.request(endpoint: endpoint) { (result) in
       switch result {
       case .success(let data):
@@ -69,7 +71,7 @@ extension ServiceDataResult: ServiceDataRequest {
   }
 
   public func request<E>(endpoint: E,
-                         completion: @escaping CompletionHandler<Void>) -> URLSessionTask? where E : ResponseRequestable, E.Response == Void {
+                         completion: @escaping CompletionHandler<Void>) -> URLSessionDataTaskProtocol? where E : ResponseRequestable, E.Response == Void {
     return self.service.request(endpoint: endpoint) { (result) -> Void in
       switch result {
       case .success:

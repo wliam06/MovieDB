@@ -19,9 +19,9 @@ public struct ServiceNetworkConfig: ServiceConfigurable {
   public var headers: [String : String]
   public var queryParams: [String : String]
 
-  init(baseURL: URL,
-       headers: [String: String] = [:],
-       queryParams: [String: String] = [:]) {
+  public init(baseURL: URL,
+              headers: [String: String] = [:],
+              queryParams: [String: String] = [:]) {
     self.baseURL = baseURL
     self.headers = headers
     self.queryParams = queryParams

@@ -10,7 +10,10 @@ import XCTest
 
 @testable import MovieDB
 class MockServiceSession: SessionRequestable {
-  let response: HTTPURLResponse?
+  typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
+  var dataTask = MockURLSessionDataTask()
+
+  let response: URLResponse?
   let data: Data?
   let error: Error?
 
@@ -19,10 +22,10 @@ class MockServiceSession: SessionRequestable {
     self.data = data
     self.error = error
   }
-  
+
   func request(_ request: URLRequest,
-               completion: @escaping CompletionHandler) -> URLSessionTask {
-      completion(data, response, error)
-      return URLSessionTask()
+               completion: @escaping CompletionHandler) -> URLSessionDataTaskProtocol {
+    completion(data, response, error)
+    return dataTask
   }
 }
