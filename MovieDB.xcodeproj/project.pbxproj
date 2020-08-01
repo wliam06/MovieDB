@@ -9,8 +9,22 @@
 /* Begin PBXBuildFile section */
 		016676467DDBCED3E2CD0481 /* Pods_MovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60C739E345861C48528EF07 /* Pods_MovieDB.framework */; };
 		04F9CCFEEE8FFC8F6C10FCBA /* Pods_MovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC533C71BD567A2982D456E /* Pods_MovieDBTests.framework */; };
+		3D3EAE5924D542CE0048E7D2 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE5824D542CE0048E7D2 /* MockURLSessionDataTask.swift */; };
 		3D41F22124CDA1B0003BEC00 /* MovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */; };
 		3D41F22F24CDA550003BEC00 /* MovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41F22E24CDA550003BEC00 /* MovieDBUITests.swift */; };
+		3D44290624D4740B0079895A /* ServiceResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44290524D4740B0079895A /* ServiceResultTests.swift */; };
+		3D49FE0724CEB76B0039B7F4 /* ServiceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FE0624CEB76B0039B7F4 /* ServiceConfig.swift */; };
+		3D49FE0924CEB8310039B7F4 /* ServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FE0824CEB8310039B7F4 /* ServiceEndpoint.swift */; };
+		3D49FE0D24CEBA5E0039B7F4 /* ServiceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FE0C24CEBA5E0039B7F4 /* ServiceRequest.swift */; };
+		3D49FE0F24CEBA750039B7F4 /* ServiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FE0E24CEBA750039B7F4 /* ServiceResult.swift */; };
+		3D49FE1224CEBD6A0039B7F4 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FE1124CEBD6A0039B7F4 /* EncodableExtension.swift */; };
+		3D49FE1424CEBDBD0039B7F4 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FE1324CEBDBD0039B7F4 /* DictionaryExtension.swift */; };
+		3D49FE1624CEC6820039B7F4 /* ServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FE1524CEC6820039B7F4 /* ServiceSession.swift */; };
+		3D49FE1824CECFDA0039B7F4 /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49FE1724CECFDA0039B7F4 /* ResponseDecoder.swift */; };
+		3D5BA2F324D15258009FC48B /* MockServiceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5BA2F224D15258009FC48B /* MockServiceEndpoint.swift */; };
+		3D5BA2F524D15599009FC48B /* ServiceSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5BA2F424D15599009FC48B /* ServiceSessionTests.swift */; };
+		3D8FEDA924D07432005053E0 /* MockServiceConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8FEDA824D07432005053E0 /* MockServiceConfigurable.swift */; };
+		3D8FEDAB24D0752B005053E0 /* MockServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8FEDAA24D0752B005053E0 /* MockServiceSession.swift */; };
 		5E7CF8C823AB66F4000ACA33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CF8C723AB66F4000ACA33 /* AppDelegate.swift */; };
 		5E7CF8CA23AB66F4000ACA33 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CF8C923AB66F4000ACA33 /* ViewController.swift */; };
 		5E7CF8CD23AB66F4000ACA33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CF8CB23AB66F4000ACA33 /* Main.storyboard */; };
@@ -39,12 +53,26 @@
 /* Begin PBXFileReference section */
 		00D86834347908AE3BA7769A /* Pods-MovieDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBTests.release.xcconfig"; path = "Target Support Files/Pods-MovieDBTests/Pods-MovieDBTests.release.xcconfig"; sourceTree = "<group>"; };
 		127CD22B6C27BBAE848E874F /* Pods-MovieDBUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBUITests.release.xcconfig"; path = "Target Support Files/Pods-MovieDBUITests/Pods-MovieDBUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3D3EAE5824D542CE0048E7D2 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		3D41F21E24CDA1B0003BEC00 /* MovieDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBTests.swift; sourceTree = "<group>"; };
 		3D41F22224CDA1B0003BEC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D41F22C24CDA550003BEC00 /* MovieDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D41F22E24CDA550003BEC00 /* MovieDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBUITests.swift; sourceTree = "<group>"; };
 		3D41F23024CDA550003BEC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D44290524D4740B0079895A /* ServiceResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceResultTests.swift; sourceTree = "<group>"; };
+		3D49FE0624CEB76B0039B7F4 /* ServiceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConfig.swift; sourceTree = "<group>"; };
+		3D49FE0824CEB8310039B7F4 /* ServiceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEndpoint.swift; sourceTree = "<group>"; };
+		3D49FE0C24CEBA5E0039B7F4 /* ServiceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequest.swift; sourceTree = "<group>"; };
+		3D49FE0E24CEBA750039B7F4 /* ServiceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceResult.swift; sourceTree = "<group>"; };
+		3D49FE1124CEBD6A0039B7F4 /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
+		3D49FE1324CEBDBD0039B7F4 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		3D49FE1524CEC6820039B7F4 /* ServiceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSession.swift; sourceTree = "<group>"; };
+		3D49FE1724CECFDA0039B7F4 /* ResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDecoder.swift; sourceTree = "<group>"; };
+		3D5BA2F224D15258009FC48B /* MockServiceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceEndpoint.swift; sourceTree = "<group>"; };
+		3D5BA2F424D15599009FC48B /* ServiceSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSessionTests.swift; sourceTree = "<group>"; };
+		3D8FEDA824D07432005053E0 /* MockServiceConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceConfigurable.swift; sourceTree = "<group>"; };
+		3D8FEDAA24D0752B005053E0 /* MockServiceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceSession.swift; sourceTree = "<group>"; };
 		5E7CF8C423AB66F4000ACA33 /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7CF8C723AB66F4000ACA33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E7CF8C923AB66F4000ACA33 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +133,7 @@
 		3D41F21F24CDA1B0003BEC00 /* MovieDBTests */ = {
 			isa = PBXGroup;
 			children = (
+				3D49FE1924CEDE250039B7F4 /* Infrastructure */,
 				3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */,
 				3D41F22224CDA1B0003BEC00 /* Info.plist */,
 			);
@@ -118,6 +147,57 @@
 				3D41F23024CDA550003BEC00 /* Info.plist */,
 			);
 			path = MovieDBUITests;
+			sourceTree = "<group>";
+		};
+		3D49FE0424CEB72A0039B7F4 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				3D49FE0524CEB7350039B7F4 /* Networking */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		3D49FE0524CEB7350039B7F4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3D49FE1724CECFDA0039B7F4 /* ResponseDecoder.swift */,
+				3D49FE0E24CEBA750039B7F4 /* ServiceResult.swift */,
+				3D49FE0C24CEBA5E0039B7F4 /* ServiceRequest.swift */,
+				3D49FE1524CEC6820039B7F4 /* ServiceSession.swift */,
+				3D49FE0824CEB8310039B7F4 /* ServiceEndpoint.swift */,
+				3D49FE0624CEB76B0039B7F4 /* ServiceConfig.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3D49FE1024CEBD5F0039B7F4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3D49FE1124CEBD6A0039B7F4 /* EncodableExtension.swift */,
+				3D49FE1324CEBDBD0039B7F4 /* DictionaryExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3D49FE1924CEDE250039B7F4 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				3D49FE1A24CEDE320039B7F4 /* Mock */,
+				3D5BA2F424D15599009FC48B /* ServiceSessionTests.swift */,
+				3D44290524D4740B0079895A /* ServiceResultTests.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		3D49FE1A24CEDE320039B7F4 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				3D8FEDA824D07432005053E0 /* MockServiceConfigurable.swift */,
+				3D8FEDAA24D0752B005053E0 /* MockServiceSession.swift */,
+				3D5BA2F224D15258009FC48B /* MockServiceEndpoint.swift */,
+				3D3EAE5824D542CE0048E7D2 /* MockURLSessionDataTask.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		5E7CF8BB23AB66F4000ACA33 = {
@@ -145,6 +225,8 @@
 		5E7CF8C623AB66F4000ACA33 /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				3D49FE1024CEBD5F0039B7F4 /* Extensions */,
+				3D49FE0424CEB72A0039B7F4 /* Infrastructure */,
 				5E7CF8C723AB66F4000ACA33 /* AppDelegate.swift */,
 				5E7CF8C923AB66F4000ACA33 /* ViewController.swift */,
 				5E7CF8CB23AB66F4000ACA33 /* Main.storyboard */,
@@ -422,7 +504,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D5BA2F324D15258009FC48B /* MockServiceEndpoint.swift in Sources */,
+				3D8FEDA924D07432005053E0 /* MockServiceConfigurable.swift in Sources */,
 				3D41F22124CDA1B0003BEC00 /* MovieDBTests.swift in Sources */,
+				3D8FEDAB24D0752B005053E0 /* MockServiceSession.swift in Sources */,
+				3D44290624D4740B0079895A /* ServiceResultTests.swift in Sources */,
+				3D5BA2F524D15599009FC48B /* ServiceSessionTests.swift in Sources */,
+				3D3EAE5924D542CE0048E7D2 /* MockURLSessionDataTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,8 +526,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D49FE0D24CEBA5E0039B7F4 /* ServiceRequest.swift in Sources */,
 				5E7CF8CA23AB66F4000ACA33 /* ViewController.swift in Sources */,
+				3D49FE0F24CEBA750039B7F4 /* ServiceResult.swift in Sources */,
+				3D49FE1224CEBD6A0039B7F4 /* EncodableExtension.swift in Sources */,
+				3D49FE0724CEB76B0039B7F4 /* ServiceConfig.swift in Sources */,
+				3D49FE0924CEB8310039B7F4 /* ServiceEndpoint.swift in Sources */,
 				5E7CF8C823AB66F4000ACA33 /* AppDelegate.swift in Sources */,
+				3D49FE1824CECFDA0039B7F4 /* ResponseDecoder.swift in Sources */,
+				3D49FE1424CEBDBD0039B7F4 /* DictionaryExtension.swift in Sources */,
+				3D49FE1624CEC6820039B7F4 /* ServiceSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
