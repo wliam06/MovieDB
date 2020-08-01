@@ -10,6 +10,12 @@
 		016676467DDBCED3E2CD0481 /* Pods_MovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60C739E345861C48528EF07 /* Pods_MovieDB.framework */; };
 		04F9CCFEEE8FFC8F6C10FCBA /* Pods_MovieDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CC533C71BD567A2982D456E /* Pods_MovieDBTests.framework */; };
 		3D3EAE5924D542CE0048E7D2 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE5824D542CE0048E7D2 /* MockURLSessionDataTask.swift */; };
+		3D3EAE6024D55B500048E7D2 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE5F24D55B500048E7D2 /* AppRouter.swift */; };
+		3D3EAE6224D55B640048E7D2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE6124D55B640048E7D2 /* Router.swift */; };
+		3D3EAE6624D55EC70048E7D2 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE6524D55EC70048E7D2 /* MockRouter.swift */; };
+		3D3EAE6824D55ECD0048E7D2 /* MockAppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE6724D55ECD0048E7D2 /* MockAppRouter.swift */; };
+		3D3EAE6A24D560DF0048E7D2 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE6924D560DF0048E7D2 /* RouterTests.swift */; };
+		3D3EAE6C24D5697C0048E7D2 /* AppRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE6B24D5697C0048E7D2 /* AppRouterTests.swift */; };
 		3D41F22124CDA1B0003BEC00 /* MovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */; };
 		3D41F22F24CDA550003BEC00 /* MovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41F22E24CDA550003BEC00 /* MovieDBUITests.swift */; };
 		3D44290624D4740B0079895A /* ServiceResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44290524D4740B0079895A /* ServiceResultTests.swift */; };
@@ -54,6 +60,12 @@
 		00D86834347908AE3BA7769A /* Pods-MovieDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBTests.release.xcconfig"; path = "Target Support Files/Pods-MovieDBTests/Pods-MovieDBTests.release.xcconfig"; sourceTree = "<group>"; };
 		127CD22B6C27BBAE848E874F /* Pods-MovieDBUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBUITests.release.xcconfig"; path = "Target Support Files/Pods-MovieDBUITests/Pods-MovieDBUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3D3EAE5824D542CE0048E7D2 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		3D3EAE5F24D55B500048E7D2 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		3D3EAE6124D55B640048E7D2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		3D3EAE6524D55EC70048E7D2 /* MockRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
+		3D3EAE6724D55ECD0048E7D2 /* MockAppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppRouter.swift; sourceTree = "<group>"; };
+		3D3EAE6924D560DF0048E7D2 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		3D3EAE6B24D5697C0048E7D2 /* AppRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterTests.swift; sourceTree = "<group>"; };
 		3D41F21E24CDA1B0003BEC00 /* MovieDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBTests.swift; sourceTree = "<group>"; };
 		3D41F22224CDA1B0003BEC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,9 +142,54 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3D3EAE5A24D55AD60048E7D2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3D3EAE5F24D55B500048E7D2 /* AppRouter.swift */,
+				3D3EAE6124D55B640048E7D2 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3D3EAE5D24D55B0A0048E7D2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5E7CF8C723AB66F4000ACA33 /* AppDelegate.swift */,
+				3D3EAE5E24D55B460048E7D2 /* Route */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3D3EAE5E24D55B460048E7D2 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
+		3D3EAE6324D55E970048E7D2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3D3EAE6424D55EA10048E7D2 /* Mock */,
+				3D3EAE6924D560DF0048E7D2 /* RouterTests.swift */,
+				3D3EAE6B24D5697C0048E7D2 /* AppRouterTests.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3D3EAE6424D55EA10048E7D2 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				3D3EAE6524D55EC70048E7D2 /* MockRouter.swift */,
+				3D3EAE6724D55ECD0048E7D2 /* MockAppRouter.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		3D41F21F24CDA1B0003BEC00 /* MovieDBTests */ = {
 			isa = PBXGroup;
 			children = (
+				3D3EAE6324D55E970048E7D2 /* Router */,
 				3D49FE1924CEDE250039B7F4 /* Infrastructure */,
 				3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */,
 				3D41F22224CDA1B0003BEC00 /* Info.plist */,
@@ -225,9 +282,10 @@
 		5E7CF8C623AB66F4000ACA33 /* MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				3D3EAE5D24D55B0A0048E7D2 /* Application */,
+				3D3EAE5A24D55AD60048E7D2 /* Router */,
 				3D49FE1024CEBD5F0039B7F4 /* Extensions */,
 				3D49FE0424CEB72A0039B7F4 /* Infrastructure */,
-				5E7CF8C723AB66F4000ACA33 /* AppDelegate.swift */,
 				5E7CF8C923AB66F4000ACA33 /* ViewController.swift */,
 				5E7CF8CB23AB66F4000ACA33 /* Main.storyboard */,
 				5E7CF8CE23AB66F7000ACA33 /* Assets.xcassets */,
@@ -504,12 +562,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D3EAE6A24D560DF0048E7D2 /* RouterTests.swift in Sources */,
 				3D5BA2F324D15258009FC48B /* MockServiceEndpoint.swift in Sources */,
 				3D8FEDA924D07432005053E0 /* MockServiceConfigurable.swift in Sources */,
 				3D41F22124CDA1B0003BEC00 /* MovieDBTests.swift in Sources */,
 				3D8FEDAB24D0752B005053E0 /* MockServiceSession.swift in Sources */,
 				3D44290624D4740B0079895A /* ServiceResultTests.swift in Sources */,
 				3D5BA2F524D15599009FC48B /* ServiceSessionTests.swift in Sources */,
+				3D3EAE6C24D5697C0048E7D2 /* AppRouterTests.swift in Sources */,
+				3D3EAE6824D55ECD0048E7D2 /* MockAppRouter.swift in Sources */,
+				3D3EAE6624D55EC70048E7D2 /* MockRouter.swift in Sources */,
 				3D3EAE5924D542CE0048E7D2 /* MockURLSessionDataTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,12 +592,14 @@
 				5E7CF8CA23AB66F4000ACA33 /* ViewController.swift in Sources */,
 				3D49FE0F24CEBA750039B7F4 /* ServiceResult.swift in Sources */,
 				3D49FE1224CEBD6A0039B7F4 /* EncodableExtension.swift in Sources */,
+				3D3EAE6024D55B500048E7D2 /* AppRouter.swift in Sources */,
 				3D49FE0724CEB76B0039B7F4 /* ServiceConfig.swift in Sources */,
 				3D49FE0924CEB8310039B7F4 /* ServiceEndpoint.swift in Sources */,
 				5E7CF8C823AB66F4000ACA33 /* AppDelegate.swift in Sources */,
 				3D49FE1824CECFDA0039B7F4 /* ResponseDecoder.swift in Sources */,
 				3D49FE1424CEBDBD0039B7F4 /* DictionaryExtension.swift in Sources */,
 				3D49FE1624CEC6820039B7F4 /* ServiceSession.swift in Sources */,
+				3D3EAE6224D55B640048E7D2 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
