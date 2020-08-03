@@ -51,7 +51,7 @@ extension AppRouter: Router {
   }
   
   func push(_ module: Presentable?, animated: Bool, completion: (() -> Void)?) {
-    push(module, anima@objc ted: animated, hideBottomBar: false, completion: completion)
+    push(module, animated: animated, hideBottomBar: false, completion: completion)
   }
   
   func push(_ module: Presentable?, animated: Bool, hideBottomBar: Bool, completion: (() -> Void)?) {
