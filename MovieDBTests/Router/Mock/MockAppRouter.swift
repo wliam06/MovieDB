@@ -92,6 +92,10 @@ extension MockAppRouter: MockRouter {
   public func setRootModule(_ module: Presentable?, hideBar: Bool) {
     assertionFailure("This method is not used.")
   }
+
+  func setRootModule(_ module: Presentable?, hideBar: Bool, animated: Bool) {
+    assertionFailure("This method is not used.")
+  }
   
   public func popToRootModule(animated: Bool) {
     guard let firstVC = navigationStack.first else { return }
