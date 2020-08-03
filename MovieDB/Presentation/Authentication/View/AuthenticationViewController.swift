@@ -21,6 +21,7 @@ final class AuthenticationViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    authView.delegate = self
     self.view.addSubview(authView)
     NSLayoutConstraint.activate([
       authView.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -28,5 +29,11 @@ final class AuthenticationViewController: UIViewController {
       authView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
       authView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
     ])
+  }
+}
+
+extension AuthenticationViewController: AuthenticationDelegate {
+  func loginDidTapped() {
+    viewModel.
   }
 }

@@ -8,7 +8,13 @@
 
 import UIKit
 
-class AuthenticationView: UIView {
+protocol AuthenticationDelegate: class {
+  func loginDidTapped()
+}
+
+public class AuthenticationView: UIView {
+  weak var delegate: AuthenticationDelegate?
+
   private let stackView: UIStackView = {
     return UIStackView.build() { stack in
       stack.translatesAutoresizingMaskIntoConstraints = false
@@ -46,11 +52,12 @@ class AuthenticationView: UIView {
     self.backgroundColor = .white
 
     addSubview(stackView)
-    
+
     stackView.spacing = 20
     stackView.addArrangedSubview(titleLabel)
     stackView.addArrangedSubview(loginButton)
 
+    loginButton.addTarget(self, action: #selector(self.loginDidTapped), for: .touchUpInside)
     applyConstraints()
   }
 
@@ -59,5 +66,9 @@ class AuthenticationView: UIView {
       stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
       stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
     ])
+  }
+
+  @objc private func loginDidTapped() {
+    delegate?.loginDidTapped()
   }
 }
