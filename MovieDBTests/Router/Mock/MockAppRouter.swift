@@ -9,6 +9,7 @@
 import XCTest
 
 @testable import MovieDB
+
 final class MockAppRouter {
   var navigationStack: [UIViewController] = []
   var presented: UIViewController?
@@ -49,7 +50,7 @@ extension MockAppRouter: MockRouter {
   
   public func push(_ module: Presentable?, animated: Bool, completion: (() -> Void)?) {
     guard let controller = module?.toPresent(), (controller is UINavigationController == false) else {
-      XCTFail("Navigation Push is empty")
+      assertionFailure("Navigation Push is Empty")
       return
     }
 
@@ -58,13 +59,8 @@ extension MockAppRouter: MockRouter {
   
   public func push(_ module: Presentable?, animated: Bool, hideBottomBar: Bool, completion: (() -> Void)?) {
     guard let controller = module?.toPresent(), (controller is UINavigationController == false) else {
-      XCTFail("Navigation Push is empty")
+      assertionFailure("Navigation Push is Empty")
       return
-    }
-
-    // Add Completion
-    if let completion = completion {
-      completions[controller] = completion
     }
 
     controller.hidesBottomBarWhenPushed = hideBottomBar
@@ -81,7 +77,7 @@ extension MockAppRouter: MockRouter {
   }
   
   public func dismissModule() {
-    dismissModule(animated: true, completion: nil)
+    dismissModule(animated: false, completion: nil)
   }
   
   public func dismissModule(animated: Bool, completion: (() -> Void)?) {
@@ -89,12 +85,12 @@ extension MockAppRouter: MockRouter {
   }
   
   public func setRootModule(_ module: Presentable?) {
-    setRootModule(module, hideBar: false)
+    guard let controller = module?.toPresent() else { return }
+    navigationStack.append(controller)
   }
   
   public func setRootModule(_ module: Presentable?, hideBar: Bool) {
-    guard let controller = module?.toPresent() else { return }
-    navigationStack.append(controller)
+    assertionFailure("This method is not used.")
   }
   
   public func popToRootModule(animated: Bool) {

@@ -8,8 +8,8 @@
 
 import UIKit
 
-final class AppRouter: NSObject {
-  private weak var rootController: UINavigationController?
+class AppRouter: NSObject {
+  public weak var rootController: UINavigationController?
   private var completions: [UIViewController: () -> Void] = [:]
 
   init(rootController: UINavigationController) {

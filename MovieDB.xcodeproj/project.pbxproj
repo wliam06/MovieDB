@@ -15,7 +15,6 @@
 		3D3EAE6624D55EC70048E7D2 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE6524D55EC70048E7D2 /* MockRouter.swift */; };
 		3D3EAE6824D55ECD0048E7D2 /* MockAppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE6724D55ECD0048E7D2 /* MockAppRouter.swift */; };
 		3D3EAE6A24D560DF0048E7D2 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE6924D560DF0048E7D2 /* RouterTests.swift */; };
-		3D3EAE6C24D5697C0048E7D2 /* AppRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE6B24D5697C0048E7D2 /* AppRouterTests.swift */; };
 		3D41F22124CDA1B0003BEC00 /* MovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */; };
 		3D41F22F24CDA550003BEC00 /* MovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41F22E24CDA550003BEC00 /* MovieDBUITests.swift */; };
 		3D44290624D4740B0079895A /* ServiceResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44290524D4740B0079895A /* ServiceResultTests.swift */; };
@@ -65,7 +64,6 @@
 		3D3EAE6524D55EC70048E7D2 /* MockRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
 		3D3EAE6724D55ECD0048E7D2 /* MockAppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppRouter.swift; sourceTree = "<group>"; };
 		3D3EAE6924D560DF0048E7D2 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
-		3D3EAE6B24D5697C0048E7D2 /* AppRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterTests.swift; sourceTree = "<group>"; };
 		3D41F21E24CDA1B0003BEC00 /* MovieDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBTests.swift; sourceTree = "<group>"; };
 		3D41F22224CDA1B0003BEC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 			children = (
 				3D3EAE6424D55EA10048E7D2 /* Mock */,
 				3D3EAE6924D560DF0048E7D2 /* RouterTests.swift */,
-				3D3EAE6B24D5697C0048E7D2 /* AppRouterTests.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -569,7 +566,6 @@
 				3D8FEDAB24D0752B005053E0 /* MockServiceSession.swift in Sources */,
 				3D44290624D4740B0079895A /* ServiceResultTests.swift in Sources */,
 				3D5BA2F524D15599009FC48B /* ServiceSessionTests.swift in Sources */,
-				3D3EAE6C24D5697C0048E7D2 /* AppRouterTests.swift in Sources */,
 				3D3EAE6824D55ECD0048E7D2 /* MockAppRouter.swift in Sources */,
 				3D3EAE6624D55EC70048E7D2 /* MockRouter.swift in Sources */,
 				3D3EAE5924D542CE0048E7D2 /* MockURLSessionDataTask.swift in Sources */,

@@ -25,8 +25,6 @@ class RouterTests: XCTestCase {
   override func setUp() {
     super.setUp()
     router = MockAppRouter()
-    let appRouter = AppRouter(rootController: UINavigationController())
-
     firstController = FirstController()
     secondController = SecondController()
     thirdController = ThirdController()
