@@ -15,6 +15,9 @@
 		3D3EAE6624D55EC70048E7D2 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE6524D55EC70048E7D2 /* MockRouter.swift */; };
 		3D3EAE6824D55ECD0048E7D2 /* MockAppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE6724D55ECD0048E7D2 /* MockAppRouter.swift */; };
 		3D3EAE6A24D560DF0048E7D2 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3EAE6924D560DF0048E7D2 /* RouterTests.swift */; };
+		3D41DD4124D7E723006B8943 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41DD4024D7E723006B8943 /* LaunchScreenViewController.swift */; };
+		3D41DD4424D7E7D0006B8943 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41DD4324D7E7D0006B8943 /* LaunchScreenView.swift */; };
+		3D41DD4724D7E7E5006B8943 /* LaunchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41DD4624D7E7E5006B8943 /* LaunchScreenViewModel.swift */; };
 		3D41F22124CDA1B0003BEC00 /* MovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */; };
 		3D41F22F24CDA550003BEC00 /* MovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41F22E24CDA550003BEC00 /* MovieDBUITests.swift */; };
 		3D44290624D4740B0079895A /* ServiceResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44290524D4740B0079895A /* ServiceResultTests.swift */; };
@@ -64,6 +67,9 @@
 		3D3EAE6524D55EC70048E7D2 /* MockRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
 		3D3EAE6724D55ECD0048E7D2 /* MockAppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppRouter.swift; sourceTree = "<group>"; };
 		3D3EAE6924D560DF0048E7D2 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		3D41DD4024D7E723006B8943 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		3D41DD4324D7E7D0006B8943 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		3D41DD4624D7E7E5006B8943 /* LaunchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewModel.swift; sourceTree = "<group>"; };
 		3D41F21E24CDA1B0003BEC00 /* MovieDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBTests.swift; sourceTree = "<group>"; };
 		3D41F22224CDA1B0003BEC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -153,16 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				5E7CF8C723AB66F4000ACA33 /* AppDelegate.swift */,
-				3D3EAE5E24D55B460048E7D2 /* Route */,
 			);
 			path = Application;
-			sourceTree = "<group>";
-		};
-		3D3EAE5E24D55B460048E7D2 /* Route */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Route;
 			sourceTree = "<group>";
 		};
 		3D3EAE6324D55E970048E7D2 /* Router */ = {
@@ -181,6 +179,80 @@
 				3D3EAE6724D55ECD0048E7D2 /* MockAppRouter.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		3D41DD3824D7E64E006B8943 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3D41DD3F24D7E700006B8943 /* Flows */,
+				3D41DD3E24D7E6FB006B8943 /* LaunchScreen */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3D41DD3924D7E661006B8943 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3D49FE1024CEBD5F0039B7F4 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3D41DD3A24D7E673006B8943 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5E7CF8CE23AB66F7000ACA33 /* Assets.xcassets */,
+				5E7CF8D023AB66F7000ACA33 /* LaunchScreen.storyboard */,
+				5E7CF8D323AB66F7000ACA33 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3D41DD3B24D7E6AB006B8943 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3D41DD3D24D7E6C3006B8943 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3D41DD3E24D7E6FB006B8943 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3D41DD4524D7E7D7006B8943 /* ViewModel */,
+				3D41DD4224D7E7C7006B8943 /* View */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		3D41DD3F24D7E700006B8943 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		3D41DD4224D7E7C7006B8943 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D41DD4324D7E7D0006B8943 /* LaunchScreenView.swift */,
+				3D41DD4024D7E723006B8943 /* LaunchScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D41DD4524D7E7D7006B8943 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D41DD4624D7E7E5006B8943 /* LaunchScreenViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		3D41F21F24CDA1B0003BEC00 /* MovieDBTests */ = {
@@ -281,13 +353,14 @@
 			children = (
 				3D3EAE5D24D55B0A0048E7D2 /* Application */,
 				3D3EAE5A24D55AD60048E7D2 /* Router */,
-				3D49FE1024CEBD5F0039B7F4 /* Extensions */,
+				3D41DD3824D7E64E006B8943 /* Presentation */,
+				3D41DD3D24D7E6C3006B8943 /* Domain */,
+				3D41DD3B24D7E6AB006B8943 /* Data */,
 				3D49FE0424CEB72A0039B7F4 /* Infrastructure */,
+				3D41DD3924D7E661006B8943 /* Common */,
 				5E7CF8C923AB66F4000ACA33 /* ViewController.swift */,
 				5E7CF8CB23AB66F4000ACA33 /* Main.storyboard */,
-				5E7CF8CE23AB66F7000ACA33 /* Assets.xcassets */,
-				5E7CF8D023AB66F7000ACA33 /* LaunchScreen.storyboard */,
-				5E7CF8D323AB66F7000ACA33 /* Info.plist */,
+				3D41DD3A24D7E673006B8943 /* Resources */,
 			);
 			path = MovieDB;
 			sourceTree = "<group>";
@@ -585,13 +658,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D49FE0D24CEBA5E0039B7F4 /* ServiceRequest.swift in Sources */,
+				3D41DD4124D7E723006B8943 /* LaunchScreenViewController.swift in Sources */,
 				5E7CF8CA23AB66F4000ACA33 /* ViewController.swift in Sources */,
 				3D49FE0F24CEBA750039B7F4 /* ServiceResult.swift in Sources */,
 				3D49FE1224CEBD6A0039B7F4 /* EncodableExtension.swift in Sources */,
 				3D3EAE6024D55B500048E7D2 /* AppRouter.swift in Sources */,
 				3D49FE0724CEB76B0039B7F4 /* ServiceConfig.swift in Sources */,
 				3D49FE0924CEB8310039B7F4 /* ServiceEndpoint.swift in Sources */,
+				3D41DD4724D7E7E5006B8943 /* LaunchScreenViewModel.swift in Sources */,
 				5E7CF8C823AB66F4000ACA33 /* AppDelegate.swift in Sources */,
+				3D41DD4424D7E7D0006B8943 /* LaunchScreenView.swift in Sources */,
 				3D49FE1824CECFDA0039B7F4 /* ResponseDecoder.swift in Sources */,
 				3D49FE1424CEBDBD0039B7F4 /* DictionaryExtension.swift in Sources */,
 				3D49FE1624CEC6820039B7F4 /* ServiceSession.swift in Sources */,
