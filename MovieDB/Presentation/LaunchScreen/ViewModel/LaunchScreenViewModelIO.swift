@@ -8,8 +8,17 @@
 
 import Foundation
 
-protocol LaunchScreenViewModelInput: class {}
+enum LaunchScreenViewModelLoading {
+  case inScreen
+  case nextScreen
+}
 
-protocol LaunchScreenViewModelOutput: class {}
+protocol LaunchScreenViewModelInput: class {
+  func fetchUserData()
+}
+
+protocol LaunchScreenViewModelOutput: class {
+  var loading: Observable<LaunchScreenViewModelLoading?> { get }
+}
 
 protocol LaunchScreenViewModel: LaunchScreenViewModelInput, LaunchScreenViewModelOutput {}

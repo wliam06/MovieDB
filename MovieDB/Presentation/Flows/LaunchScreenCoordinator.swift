@@ -9,10 +9,17 @@
 import Foundation
 
 protocol LaunchScreenCoordinatorDependencies: class {
-  func makeLaunchScreenViewController() -> LaunchScreenViewController
+  func makeLaunchScreenViewController(closures: LaunchScreenClosures) -> LaunchScreenViewController
+  func makeAuthenticationViewController() -> AuthenticationViewController
 }
 
-final class LauncScreenCoordinator: BaseCoordinator {
+protocol LaunchScreenOutput: class {
+  var finishFlow: (() -> Void)? { get set }
+}
+
+final class LauncScreenCoordinator: BaseCoordinator, LaunchScreenOutput {
+  var finishFlow: (() -> Void)?
+
   private let router: Router
   private let dependencies: LaunchScreenCoordinatorDependencies
 
@@ -23,7 +30,20 @@ final class LauncScreenCoordinator: BaseCoordinator {
   }
 
   override func start() {
-    let view = dependencies.makeLaunchScreenViewController()
-    router.setRootModule(view)
+    let closures = LaunchScreenClosures(showAuthenticationView: showAuthenticationView)
+    let view = dependencies.makeLaunchScreenViewController(closures: closures)
+
+    router.setRootModule(view, hideBar: true)
+  }
+
+  private func showAuthenticationView() {
+    var closures = AuthenticationClosures()
+    let view = dependencies.makeAuthenticationViewController()
+
+    closures.showMovieList = { [weak self] in
+      self?.finishFlow?()
+    }
+
+    router.setRootModule(view, hideBar: false, animated: true)
   }
 }

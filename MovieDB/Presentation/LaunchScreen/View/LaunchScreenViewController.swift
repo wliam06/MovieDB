@@ -8,13 +8,13 @@
 
 import UIKit
 
-final class LaunchScreenViewController: UIViewController {
+final class LaunchScreenViewController: UIViewController, StoryboardInstantiable {
   private let launchView: LaunchScreenView = LaunchScreenView.build()
 
   private var viewModel: LaunchScreenViewModel!
 
   static func create(withViewModel viewModel: LaunchScreenViewModel) -> LaunchScreenViewController {
-    let view = LaunchScreenViewController()
+    let view = LaunchScreenViewController.instantiateViewController()
     view.viewModel = viewModel
     return view
   }
@@ -22,12 +22,21 @@ final class LaunchScreenViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.addSubview(launchView)
-    NSLayoutConstraint.activate([
-      launchView.topAnchor.constraint(equalTo: view.topAnchor),
-      launchView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      launchView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      launchView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-    ])
+    configureLayout()
+
+    viewModel.fetchUserData()
+  }
+}
+
+// MARK: - Configure UI
+extension LaunchScreenViewController {
+  private func configureLayout() {
+//    view.addSubview(launchView)
+//    NSLayoutConstraint.activate([
+//      launchView.topAnchor.constraint(equalTo: view.topAnchor),
+//      launchView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//      launchView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//      launchView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+//    ])
   }
 }

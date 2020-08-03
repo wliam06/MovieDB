@@ -38,6 +38,7 @@ public protocol Router: Presentable {
   
   func setRootModule(_ module: Presentable?)
   func setRootModule(_ module: Presentable?, hideBar: Bool)
+  func setRootModule(_ module: Presentable?, hideBar: Bool, animated: Bool)
   
   func popToRootModule(animated: Bool)
 }

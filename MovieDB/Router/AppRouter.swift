@@ -53,7 +53,7 @@ extension AppRouter: Router {
   func push(_ module: Presentable?, animated: Bool, completion: (() -> Void)?) {
     push(module, animated: animated, hideBottomBar: false, completion: completion)
   }
-  
+
   func push(_ module: Presentable?, animated: Bool, hideBottomBar: Bool, completion: (() -> Void)?) {
     guard let controller = module?.toPresent(), (controller is UINavigationController == false) else {
       #if DEBUG
@@ -88,14 +88,20 @@ extension AppRouter: Router {
   func dismissModule(animated: Bool, completion: (() -> Void)?) {
     rootController?.dismiss(animated: animated, completion: completion)
   }
-  
+
   func setRootModule(_ module: Presentable?) {
     setRootModule(module, hideBar: false)
   }
-  
+
   func setRootModule(_ module: Presentable?, hideBar: Bool) {
     guard let controller = module?.toPresent() else { return }
-    rootController?.setViewControllers([controller], animated: false)
+    rootController?.setViewControllers([controller], animated: true)
+    rootController?.isNavigationBarHidden = hideBar
+  }
+
+  func setRootModule(_ module: Presentable?, hideBar: Bool, animated: Bool) {
+    guard let controller = module?.toPresent() else { return }
+    rootController?.setViewControllers([controller], animated: animated)
     rootController?.isNavigationBarHidden = hideBar
   }
   

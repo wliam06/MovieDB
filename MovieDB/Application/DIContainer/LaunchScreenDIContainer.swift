@@ -8,31 +8,32 @@
 
 import Foundation
 
-struct LaunchScreenDependencies {
-  let apiDataService: ServiceDataResult
-}
-
 final class LaunchScreenDIContainer {
-  private let dependencies: LaunchScreenDependencies
-
-  init(dependencies: LaunchScreenDependencies) {
-    self.dependencies = dependencies
-  }
-
   // MARK: - Coordinator
-  func makeLaunchScreenFlowCoordinator(router: Router) -> Coordinator {
+  func makeLaunchScreenFlowCoordinator(router: Router) -> Coordinator & LaunchScreenOutput {
     return LauncScreenCoordinator(router: router, dependencies: self)
   }
 }
 
 extension LaunchScreenDIContainer: LaunchScreenCoordinatorDependencies {
+  // MARK: - Repository
+  // MARK: - UseCase
+
   // MARK: - ViewModel
-  func makeLaunchScreenViewModel() -> LaunchScreenViewModel {
-    return DefaultLaunchScreenViewModel()
+  func makeLaunchScreenViewModel(closures: LaunchScreenClosures) -> LaunchScreenViewModel {
+    return DefaultLaunchScreenViewModel(closures: closures)
   }
-  
+
+  func makeAuthenticationViewModel() -> AuthenticationViewModel {
+    return DefaultAuthenticationViewModel()
+  }
+
   // MARK: - View
-  func makeLaunchScreenViewController() -> LaunchScreenViewController {
-    return LaunchScreenViewController.create(withViewModel: makeLaunchScreenViewModel())
+  func makeLaunchScreenViewController(closures: LaunchScreenClosures) -> LaunchScreenViewController {
+    return LaunchScreenViewController.create(withViewModel: makeLaunchScreenViewModel(closures: closures))
+  }
+
+  func makeAuthenticationViewController() -> AuthenticationViewController {
+    return AuthenticationViewController.create(withViewModel: makeAuthenticationViewModel())
   }
 }

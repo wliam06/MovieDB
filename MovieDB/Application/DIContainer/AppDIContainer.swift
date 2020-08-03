@@ -20,7 +20,6 @@ final class AppDIContainer {
   }()
 
   func makeLaunchScreenDIContainer() -> LaunchScreenDIContainer {
-    let dependencies = LaunchScreenDependencies(apiDataService: apiDataService)
-    return LaunchScreenDIContainer(dependencies: dependencies)
+    return LaunchScreenDIContainer()
   }
 }
