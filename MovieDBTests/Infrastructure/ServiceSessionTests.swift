@@ -38,7 +38,6 @@ class ServiceSessionTests: XCTestCase {
     })
 
     wait(for: [expectation], timeout: 0.1)
-//    XCTAssert(mockDataTask.resumeWasCalled)
   }
 
   func test_NetworkURLRequestCancelledError() {

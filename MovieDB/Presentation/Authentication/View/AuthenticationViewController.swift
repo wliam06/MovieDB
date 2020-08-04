@@ -34,6 +34,6 @@ final class AuthenticationViewController: UIViewController {
 
 extension AuthenticationViewController: AuthenticationDelegate {
   func loginDidTapped() {
-    
+    viewModel.loginDidTapped()
   }
 }

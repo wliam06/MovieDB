@@ -15,10 +15,10 @@ fileprivate enum LaunchInstructor {
 
   static func configure(isAuth: Bool = isAuthorized) -> LaunchInstructor {
     switch isAuth {
+    case false:
+      return .auth
     case true:
       return .main
-    default:
-      return .auth
     }
   }
 }
@@ -38,32 +38,27 @@ final class AppFlowCoordinator: BaseCoordinator {
 
   override func start() {
     // Implement Deeplink here
-//    switch instructor {
-//    case .auth:
-//      showLaunchScreen()
-//    case .main:
-//
-//    }
-    showLaunchScreen()
+    switch instructor {
+    case .auth:
+      showLaunchScreen()
+    case .main:
+      showMovieList()
+    }
   }
 
   private func showLaunchScreen() {
     let launchScreenDIContainer = DIContainer.makeLaunchScreenDIContainer()
-    let flow = launchScreenDIContainer.makeLaunchScreenFlowCoordinator(router: router)
-    flow.finishFlow = { [weak self, weak flow] in
-      isAuthorized = false
-      self?.showAuthentication()
-      self?.removeDependency(flow)
+    let coordinator = launchScreenDIContainer.makeLaunchScreenFlowCoordinator(router: router)
+    coordinator.finishFlow = { [weak self, weak coordinator] in
+      isAuthorized = true
+      self?.start()
+      self?.removeDependency(coordinator)
     }
-    addDependency(flow)
-    flow.start()
-  }
-  
-  private func showAuthentication() {
-    
+    addDependency(coordinator)
+    coordinator.start()
   }
 
-//  private func router(_ navController: UINavigationController) -> Router {
-//    return AppRouter(rootController: )
-//  }
+  private func showMovieList() {
+    
+  }
 }

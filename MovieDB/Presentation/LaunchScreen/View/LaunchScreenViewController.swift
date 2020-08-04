@@ -31,12 +31,12 @@ final class LaunchScreenViewController: UIViewController, StoryboardInstantiable
 // MARK: - Configure UI
 extension LaunchScreenViewController {
   private func configureLayout() {
-//    view.addSubview(launchView)
-//    NSLayoutConstraint.activate([
-//      launchView.topAnchor.constraint(equalTo: view.topAnchor),
-//      launchView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//      launchView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//      launchView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-//    ])
+    view.addSubview(launchView)
+    NSLayoutConstraint.activate([
+      launchView.topAnchor.constraint(equalTo: view.topAnchor),
+      launchView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      launchView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      launchView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
   }
 }

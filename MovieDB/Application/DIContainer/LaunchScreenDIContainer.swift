@@ -24,8 +24,8 @@ extension LaunchScreenDIContainer: LaunchScreenCoordinatorDependencies {
     return DefaultLaunchScreenViewModel(closures: closures)
   }
 
-  func makeAuthenticationViewModel() -> AuthenticationViewModel {
-    return DefaultAuthenticationViewModel()
+  func makeAuthenticationViewModel(closures: AuthenticationClosures) -> AuthenticationViewModel {
+    return DefaultAuthenticationViewModel(closures: closures)
   }
 
   // MARK: - View
@@ -33,7 +33,7 @@ extension LaunchScreenDIContainer: LaunchScreenCoordinatorDependencies {
     return LaunchScreenViewController.create(withViewModel: makeLaunchScreenViewModel(closures: closures))
   }
 
-  func makeAuthenticationViewController() -> AuthenticationViewController {
-    return AuthenticationViewController.create(withViewModel: makeAuthenticationViewModel())
+  func makeAuthenticationViewController(closures: AuthenticationClosures) -> AuthenticationViewController {
+    return AuthenticationViewController.create(withViewModel: makeAuthenticationViewModel(closures: closures))
   }
 }

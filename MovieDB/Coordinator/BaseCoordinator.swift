@@ -24,10 +24,8 @@ class BaseCoordinator: Coordinator {
   }
   
   func removeDependency(_ coordinator: Coordinator?) {
-    guard
-      childCoordinators.isEmpty == false,
-      let coordinator = coordinator
-      else { return }
+    guard childCoordinators.isEmpty == false,
+      let coordinator = coordinator else { fatalError("coordinator is empty") }
     
     // Clear child-coordinators recursively
     if let coordinator = coordinator as? BaseCoordinator, !coordinator.childCoordinators.isEmpty {

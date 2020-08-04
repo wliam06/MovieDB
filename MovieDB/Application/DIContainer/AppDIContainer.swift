@@ -19,7 +19,17 @@ final class AppDIContainer {
     return ServiceDataResult(service: network)
   }()
 
+  lazy var imageDataService: ServiceDataResult = {
+    let config = ServiceNetworkConfig(baseURL: URL(string: configuration.imageBaseURL)!)
+    let network = ServiceRequest(config: config)
+    return ServiceDataResult(service: network)
+  }()
+
   func makeLaunchScreenDIContainer() -> LaunchScreenDIContainer {
     return LaunchScreenDIContainer()
+  }
+
+  func makeMovieSceneDIContainer() -> MovieSceneDIContainer {
+    return MovieSceneDIContainer()
   }
 }

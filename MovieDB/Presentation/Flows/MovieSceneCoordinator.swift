@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MovieSceneCoordinatorDependencies {
+protocol MovieSceneCoordinatorDependencies: class {
   func makeMovieListViewController() -> MovieListViewController
   // Movie Detail
 }

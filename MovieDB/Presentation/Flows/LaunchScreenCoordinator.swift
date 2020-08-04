@@ -10,7 +10,7 @@ import Foundation
 
 protocol LaunchScreenCoordinatorDependencies: class {
   func makeLaunchScreenViewController(closures: LaunchScreenClosures) -> LaunchScreenViewController
-  func makeAuthenticationViewController() -> AuthenticationViewController
+  func makeAuthenticationViewController(closures: AuthenticationClosures) -> AuthenticationViewController
 }
 
 protocol LaunchScreenOutput: class {
@@ -37,13 +37,13 @@ final class LauncScreenCoordinator: BaseCoordinator, LaunchScreenOutput {
   }
 
   private func showAuthenticationView() {
-    var closures = AuthenticationClosures()
-    let view = dependencies.makeAuthenticationViewController()
-
-    closures.showMovieList = { [weak self] in
-      self?.finishFlow?()
-    }
+    let closures = AuthenticationClosures(showMovieList: showMovieList)
+    let view = dependencies.makeAuthenticationViewController(closures: closures)
 
     router.setRootModule(view, hideBar: false, animated: true)
+  }
+
+  private func showMovieList() {
+    self.finishFlow?()
   }
 }

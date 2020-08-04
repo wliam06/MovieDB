@@ -36,7 +36,6 @@
 		3D41DD7C24D8369D006B8943 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41DD7B24D8369D006B8943 /* AuthenticationView.swift */; };
 		3D41DD7F24D836F2006B8943 /* AuthenticationViewModelIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41DD7E24D836F2006B8943 /* AuthenticationViewModelIO.swift */; };
 		3D41DD8124D83700006B8943 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41DD8024D83700006B8943 /* AuthenticationViewModel.swift */; };
-		3D41DD8324D83752006B8943 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41DD8224D83752006B8943 /* AuthenticationCoordinator.swift */; };
 		3D41F22124CDA1B0003BEC00 /* MovieDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */; };
 		3D41F22F24CDA550003BEC00 /* MovieDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41F22E24CDA550003BEC00 /* MovieDBUITests.swift */; };
 		3D44290624D4740B0079895A /* ServiceResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44290524D4740B0079895A /* ServiceResultTests.swift */; };
@@ -54,9 +53,11 @@
 		3D63CFFF24D85BFF004A4434 /* StoryboarInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63CFFE24D85BFF004A4434 /* StoryboarInstantiable.swift */; };
 		3D8FEDA924D07432005053E0 /* MockServiceConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8FEDA824D07432005053E0 /* MockServiceConfigurable.swift */; };
 		3D8FEDAB24D0752B005053E0 /* MockServiceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8FEDAA24D0752B005053E0 /* MockServiceSession.swift */; };
+		3DB48D8024D93D1600E540DE /* MovieSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB48D7F24D93D1600E540DE /* MovieSceneDIContainer.swift */; };
+		3DB48D8324D997A200E540DE /* BaseCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB48D8224D997A200E540DE /* BaseCoordinatorTests.swift */; };
+		3DB48D8624D99A7500E540DE /* MockBaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB48D8524D99A7400E540DE /* MockBaseCoordinator.swift */; };
 		5E7CF8C823AB66F4000ACA33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7CF8C723AB66F4000ACA33 /* AppDelegate.swift */; };
 		5E7CF8CF23AB66F7000ACA33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CF8CE23AB66F7000ACA33 /* Assets.xcassets */; };
-		5E7CF8D223AB66F7000ACA33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7CF8D023AB66F7000ACA33 /* LaunchScreen.storyboard */; };
 		D6C738CFED6E5DF8B4A57530 /* Pods_MovieDBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC349273613E0F687E8E0A11 /* Pods_MovieDBUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,7 +108,6 @@
 		3D41DD7B24D8369D006B8943 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		3D41DD7E24D836F2006B8943 /* AuthenticationViewModelIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModelIO.swift; sourceTree = "<group>"; };
 		3D41DD8024D83700006B8943 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
-		3D41DD8224D83752006B8943 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		3D41F21E24CDA1B0003BEC00 /* MovieDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBTests.swift; sourceTree = "<group>"; };
 		3D41F22224CDA1B0003BEC00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,10 +129,12 @@
 		3D63CFFE24D85BFF004A4434 /* StoryboarInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboarInstantiable.swift; sourceTree = "<group>"; };
 		3D8FEDA824D07432005053E0 /* MockServiceConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceConfigurable.swift; sourceTree = "<group>"; };
 		3D8FEDAA24D0752B005053E0 /* MockServiceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServiceSession.swift; sourceTree = "<group>"; };
+		3DB48D7F24D93D1600E540DE /* MovieSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSceneDIContainer.swift; sourceTree = "<group>"; };
+		3DB48D8224D997A200E540DE /* BaseCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinatorTests.swift; sourceTree = "<group>"; };
+		3DB48D8524D99A7400E540DE /* MockBaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBaseCoordinator.swift; sourceTree = "<group>"; };
 		5E7CF8C423AB66F4000ACA33 /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7CF8C723AB66F4000ACA33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E7CF8CE23AB66F7000ACA33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5E7CF8D123AB66F7000ACA33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E7CF8D323AB66F7000ACA33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		649ED3572243D24BE71C700D /* Pods-MovieDBUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDBUITests.debug.xcconfig"; path = "Target Support Files/Pods-MovieDBUITests/Pods-MovieDBUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8CC533C71BD567A2982D456E /* Pods_MovieDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,7 +248,6 @@
 		3D41DD3A24D7E673006B8943 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5E7CF8D023AB66F7000ACA33 /* LaunchScreen.storyboard */,
 				5E7CF8CE23AB66F7000ACA33 /* Assets.xcassets */,
 				5E7CF8D323AB66F7000ACA33 /* Info.plist */,
 			);
@@ -286,7 +287,6 @@
 			isa = PBXGroup;
 			children = (
 				3D41DD5424D7ED34006B8943 /* LaunchScreenCoordinator.swift */,
-				3D41DD8224D83752006B8943 /* AuthenticationCoordinator.swift */,
 				3D41DD6F24D7FC89006B8943 /* MovieSceneCoordinator.swift */,
 			);
 			path = Flows;
@@ -366,6 +366,7 @@
 			children = (
 				3D41DD5724D7ED8D006B8943 /* AppDIContainer.swift */,
 				3D41DD6024D7EFEE006B8943 /* LaunchScreenDIContainer.swift */,
+				3DB48D7F24D93D1600E540DE /* MovieSceneDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -427,6 +428,7 @@
 		3D41F21F24CDA1B0003BEC00 /* MovieDBTests */ = {
 			isa = PBXGroup;
 			children = (
+				3DB48D8124D9978600E540DE /* Coordinator */,
 				3D3EAE6324D55E970048E7D2 /* Router */,
 				3D49FE1924CEDE250039B7F4 /* Infrastructure */,
 				3D41F22024CDA1B0003BEC00 /* MovieDBTests.swift */,
@@ -502,6 +504,23 @@
 				3D63CFFE24D85BFF004A4434 /* StoryboarInstantiable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3DB48D8124D9978600E540DE /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				3DB48D8424D99A6400E540DE /* Mock */,
+				3DB48D8224D997A200E540DE /* BaseCoordinatorTests.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		3DB48D8424D99A6400E540DE /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				3DB48D8524D99A7400E540DE /* MockBaseCoordinator.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		5E7CF8BB23AB66F4000ACA33 = {
@@ -676,7 +695,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E7CF8D223AB66F7000ACA33 /* LaunchScreen.storyboard in Resources */,
 				5E7CF8CF23AB66F7000ACA33 /* Assets.xcassets in Resources */,
 				3D63CFFC24D85AF7004A4434 /* LaunchScreenViewController.storyboard in Resources */,
 			);
@@ -814,6 +832,8 @@
 				3D8FEDA924D07432005053E0 /* MockServiceConfigurable.swift in Sources */,
 				3D41F22124CDA1B0003BEC00 /* MovieDBTests.swift in Sources */,
 				3D8FEDAB24D0752B005053E0 /* MockServiceSession.swift in Sources */,
+				3DB48D8624D99A7500E540DE /* MockBaseCoordinator.swift in Sources */,
+				3DB48D8324D997A200E540DE /* BaseCoordinatorTests.swift in Sources */,
 				3D44290624D4740B0079895A /* ServiceResultTests.swift in Sources */,
 				3D5BA2F524D15599009FC48B /* ServiceSessionTests.swift in Sources */,
 				3D3EAE6824D55ECD0048E7D2 /* MockAppRouter.swift in Sources */,
@@ -852,7 +872,6 @@
 				3D41DD7C24D8369D006B8943 /* AuthenticationView.swift in Sources */,
 				3D41DD6124D7EFEE006B8943 /* LaunchScreenDIContainer.swift in Sources */,
 				3D41DD4B24D7EC30006B8943 /* LaunchScreenViewModelIO.swift in Sources */,
-				3D41DD8324D83752006B8943 /* AuthenticationCoordinator.swift in Sources */,
 				3D41DD4724D7E7E5006B8943 /* LaunchScreenViewModel.swift in Sources */,
 				5E7CF8C823AB66F4000ACA33 /* AppDelegate.swift in Sources */,
 				3D63CFFF24D85BFF004A4434 /* StoryboarInstantiable.swift in Sources */,
@@ -867,6 +886,7 @@
 				3D3EAE6224D55B640048E7D2 /* Router.swift in Sources */,
 				3D41DD7F24D836F2006B8943 /* AuthenticationViewModelIO.swift in Sources */,
 				3D41DD5A24D7EDE3006B8943 /* AppFlowCoordinator.swift in Sources */,
+				3DB48D8024D93D1600E540DE /* MovieSceneDIContainer.swift in Sources */,
 				3D41DD6C24D7FBD2006B8943 /* MovieListViewModelIO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -885,17 +905,6 @@
 			targetProxy = 3D41F23124CDA550003BEC00 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		5E7CF8D023AB66F7000ACA33 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E7CF8D123AB66F7000ACA33 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3D41F22624CDA1B0003BEC00 /* Debug */ = {

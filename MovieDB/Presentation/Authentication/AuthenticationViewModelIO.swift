@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol AuthenticationViewModelInput: class {}
+protocol AuthenticationViewModelInput: class {
+  func loginDidTapped()
+}
 
 protocol AuthenticationViewModelOutput: class {}
 

@@ -29,7 +29,7 @@ class LaunchScreenView: UIView {
   }
 
   private func configureLayout() {
-    self.backgroundColor = .white
+    self.backgroundColor = .blue
     
     addSubview(titleLabel)
     

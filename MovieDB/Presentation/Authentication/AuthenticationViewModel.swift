@@ -13,4 +13,15 @@ struct AuthenticationClosures {
 }
 
 final class DefaultAuthenticationViewModel: AuthenticationViewModel {
+  private let closures: AuthenticationClosures?
+
+  init(closures: AuthenticationClosures? = nil) {
+    self.closures = closures
+  }
+}
+
+extension DefaultAuthenticationViewModel: AuthenticationViewModelInput {
+  func loginDidTapped() {
+    closures?.showMovieList?()
+  }
 }

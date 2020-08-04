@@ -9,21 +9,21 @@
 import Foundation
 
 final class AppConfiguration {
-  lazy var apiKey: String = {
+  internal lazy var apiKey: String = {
     guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "ApiKey") as? String else {
       fatalError("ApiKey is empty")
     }
     return apiKey
   }()
 
-  lazy var baseURL: String = {
+  internal lazy var baseURL: String = {
     guard let url = Bundle.main.object(forInfoDictionaryKey: "ApiBaseURL") as? String else {
       fatalError("ApiBaseURL is empty")
     }
     return url
   }()
 
-  lazy var imageBaseURL: String = {
+  internal lazy var imageBaseURL: String = {
     guard let url = Bundle.main.object(forInfoDictionaryKey: "ImageBaseURL") as? String else {
       fatalError("ImageBaseURL is empty")
     }
