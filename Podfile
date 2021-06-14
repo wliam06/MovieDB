@@ -3,9 +3,10 @@ platform :ios, '10.0'
 use_frameworks!
 
 def frameworks
-  pod 'Alamofire', '~> 5.2'
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  pod 'Alamofire', '5.4.3'
+  pod 'RxSwift', '6.2.0'
+  pod 'RxCocoa', '6.2.0'
+  pod 'RxAlamofire', '6.1.1'
 end
 
 def test_frameworks
@@ -19,10 +20,10 @@ end
 
 target 'MovieDBTests' do
   inherit! :search_paths
-  frameworks
+  test_frameworks
 end
 
 target 'MovieDBUITests' do
   inherit! :search_paths
-  frameworks
+  test_frameworks
 end
