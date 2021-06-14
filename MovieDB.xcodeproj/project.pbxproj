@@ -254,26 +254,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		3D41DD3B24D7E6AB006B8943 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				3D41DD4C24D7EC95006B8943 /* Repositories */,
-				3D41DD5124D7ED03006B8943 /* Local */,
-				3D41DD5224D7ED07006B8943 /* Remote */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		3D41DD3D24D7E6C3006B8943 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				3D41DD4D24D7EC9F006B8943 /* Entities */,
-				3D41DD4E24D7ECA7006B8943 /* UseCases */,
-				3D41DD4F24D7ECAC006B8943 /* Interfaces */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
 		3D41DD3E24D7E6FB006B8943 /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,48 +289,6 @@
 				3D41DD4A24D7EC30006B8943 /* LaunchScreenViewModelIO.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3D41DD4C24D7EC95006B8943 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		3D41DD4D24D7EC9F006B8943 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		3D41DD4E24D7ECA7006B8943 /* UseCases */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UseCases;
-			sourceTree = "<group>";
-		};
-		3D41DD4F24D7ECAC006B8943 /* Interfaces */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interfaces;
-			sourceTree = "<group>";
-		};
-		3D41DD5124D7ED03006B8943 /* Local */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Local;
-			sourceTree = "<group>";
-		};
-		3D41DD5224D7ED07006B8943 /* Remote */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Remote;
 			sourceTree = "<group>";
 		};
 		3D41DD5B24D7EE09006B8943 /* Coordinator */ = {
@@ -552,8 +490,6 @@
 				3D41DD5B24D7EE09006B8943 /* Coordinator */,
 				3D3EAE5A24D55AD60048E7D2 /* Router */,
 				3D41DD3824D7E64E006B8943 /* Presentation */,
-				3D41DD3D24D7E6C3006B8943 /* Domain */,
-				3D41DD3B24D7E6AB006B8943 /* Data */,
 				3D49FE0424CEB72A0039B7F4 /* Infrastructure */,
 				3D41DD3924D7E661006B8943 /* Common */,
 				3D41DD3A24D7E673006B8943 /* Resources */,
