@@ -4,6 +4,13 @@ use_frameworks!
 
 def frameworks
   pod 'Alamofire', '~> 5.2'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+end
+
+def test_frameworks
+  pod 'RxBlocking', '6.2.0'
+  pod 'RxTest', '6.2.0'
 end
 
 target 'MovieDB' do
